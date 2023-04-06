@@ -1,0 +1,38 @@
+
+% !TeX program = pdflatex
+% !TeX spellcheck = it_IT
+\documentclass[binding=0.6cm]{sapthesis}
+\usepackage{microtype}
+\usepackage[italian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\hypersetup{pdftitle={La mia tesi},pdfauthor={Francesco Biccari}}
+\title{La mia tesi}
+\author{Francesco Biccari}
+\IDnumber{123456}
+\course{Laurea Magistrale in Fisica}
+\courseorganizer{Facoltà di Scienze Matematiche, Fisiche e Naturali}
+\AcademicYear{2021/2022}
+\advisor{Prof. Caio}
+\coadvisor{Dr. Sempronio}
+\authoremail{francesco.biccari@pippo.com}
+\copyyear{2022}
+\thesistype{Tesi di Laurea Magistrale}
+\begin{document}
+\frontmatter
+\maketitle
+\dedication{Dedicato a\\ Donald Knuth}
+\begin{abstract}
+Questa tesi parla di me.
+\end{abstract}
+\tableofcontents
+\mainmatter
+\chapter{Introduzione}
+...
+\backmatter
+\cleardoublepage
+\phantomsection % Give this command only if hyperref is loaded
+\addcontentsline{toc}{chapter}{\bibname}
+% Here put the code for the bibliography. You can use BibTeX or
+% the BibLaTeX package or the simple environment thebibliography.
+\end{document}
