@@ -1,11 +1,43 @@
-
-% !TeX program = pdflatex
-% !TeX spellcheck = it_IT
 \documentclass[binding=0.6cm]{sapthesis}
 \usepackage{microtype}
 \usepackage[italian]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
+
+
+\usepackage{listings}
+\usepackage{xcolor}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{blue}{rgb}{0.01, 0.28, 1.0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{white},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\bfseries \color{blue},
+    numberstyle=\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
+
+
 \hypersetup{pdftitle={La mia tesi},pdfauthor={Lucian Dorin Crainic}}
 \title{Data Analysis e Visualization dei movimenti di pazienti con paura di cadere}
 \author{Lucian Dorin Crainic}
@@ -19,20 +51,37 @@
 \copyyear{2022}
 \thesistype{Tesi di Laurea Triennale}
 \begin{document}
+\lstset{language=Python}
+
 \frontmatter
 \maketitle
-\dedication{Dedicato a\\ Mamma e Papà}
+
+\dedication{A chi mi ha sopportato per tutti questi anni}
+
 \begin{abstract}
-Questa tesi parla di me.
+Alessio Bandiera
 \end{abstract}
 \tableofcontents
 \mainmatter
 \chapter{Introduzione}
-...
+
+\chapter{Testing}
+
+\begin{lstlisting}
+    # Comment test
+    def my_range(start, end, step):
+        while start <= end:
+            start += step
+
+    for x in my_range(1, 10, 0.5):
+        print('Hello World!')
+\end{lstlisting}
+
 \backmatter
-\cleardoublepage
-\phantomsection % Give this command only if hyperref is loaded
-\addcontentsline{toc}{chapter}{\bibname}
-% Here put the code for the bibliography. You can use BibTeX or
-% the BibLaTeX package or the simple environment thebibliography.
+\phantomsection
+
+\bibliographystyle{sapthesis}
+\bibliography{/home/Lucian/Github/Thesis/Thesis-LaTeX/thesis/src/references.bib}
+
+
 \end{document}
