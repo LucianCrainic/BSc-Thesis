@@ -53,33 +53,81 @@
 \begin{document}
 \lstset{language=Python}
 
+% Frontespizio
 \frontmatter
 \maketitle
 
-\dedication{A chi mi ha sopportato per tutti questi anni}
+% Dedica 
+\dedication{Audentes Fortuna iuvat \\ \emph{Virgilio, Eneide, X, 284}}
 
+% Sommario 
+% TODO: Lavorare sul sommario una volta finito la parte di codice. 
 \begin{abstract}
-Alessio Bandiera
+In questo elaborato si vuole presentare un sistema di Data Analysis e Visualization 
+per i movimenti di pazienti con paura di cadere. 
+Il sistema è stato sviluppato in Python e utilizza le librerie Pandas, Numpy, Matplotlib e Seaborn. 
+Il dataset utilizzato è stato fornito dal Prof. Maurizio Mancini e contiene i dati di 16 
+pazienti che hanno effettuato un test di caduta. Il sistema è stato sviluppato in modo da essere 
+facilmente estendibile e modificabile. 
 \end{abstract}
+
+% Indice
 \tableofcontents
+
 \mainmatter
+
+
 \chapter{Introduzione}
+    \section{Contesto e motivazione}
+    \section{Problema di ricerca}
+    \section{Obiettivi}
+    \section{Domanda di ricerca}
+    \section{Ambito e limitazioni}
+    \section{Importanza dello studio}
+\chapter{Revisione della letteratura}
+    \section{Paura di cadere: definizione e prevalenza}
+    \section{Fattori che contribuiscono alla paura di cadere}
+    \section{Conseguenze della paura di cadere}
+    \section{Approcci esistenti per valutare la paura di cadere}
+    \section{Studi precedenti sull'analisi dei modelli di movimento nei pazienti con paura di cadere}
+\chapter{Metodologia}
+    \section{Raccolta dei dati}
+    \section{Descrizione e pre-elaborazione del dataset}
+    \section{Estrazione delle caratteristiche}
+    \section{Tecniche di analisi statistica}
+    \section{Modelli di apprendimento automatico utilizzati}
+\chapter{Analisi e risultati}
+    \section{Analisi descrittiva del dataset}
+    \section{Confronto dei modelli di movimento tra i pazienti}
+    \section{Analisi della correlazione tra paura di cadere e parametri di movimento}
+    \section{Valutazione dei modelli di apprendimento automatico}
+    \section{Discussione dei risultati}
+\chapter{Discussione}
+    \section{Interpretazione dei risultati}
+    \section{Implicazioni delle scoperte per la comprensione della paura di cadere}
+    \section{Limitazioni dello studio}
+    \section{Raccomandazioni per futuri studi}
+\chapter{Conclusioni}
+    \section{Riassunto dello studio}
+    \section{Contributi al campo}
+    \section{Applicazioni pratiche}
+    \section{Considerazioni finali}
 
-\chapter{Testing}
+\chapter*{Ringraziamenti}
+\addcontentsline{toc}{chapter}{Ringraziamenti}
+\begin{large}
+Vorrei ringraziare, prima di tutto, il relatore della tesi \textbf{Prof. Angelo Spognardi} e il \textbf{Dr. Enrico Bassetti} per la disponibilità e per i consigli forniti durante l'attività di tirocinio. \\
 
-\begin{lstlisting}
-    # Comment test
-    def my_range(start, end, step):
-        while start <= end:
-            start += step
+Un ringraziamento anche a tutti i colleghi, diventati amici, che hanno condiviso con me questo percorso. \\
 
-    for x in my_range(1, 10, 0.5):
-        print('Hello World!')
-\end{lstlisting}
+Infine ringrazio la mia famiglia per avermi aiutato a compiere questo importante passo e per essermi stata sempre vicina supportandomi in qualsiasi momento.
+\end{large}
+
 
 \backmatter
 \phantomsection
 
+\addcontentsline{toc}{chapter}{Bibliografia}
 \bibliographystyle{sapthesis}
 \bibliography{/home/Lucian/Github/Thesis/Thesis-LaTeX/thesis/src/references.bib}
 
