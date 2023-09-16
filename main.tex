@@ -1,20 +1,22 @@
 % ============================================== %
 % Author:Lucian Dorin Crainic <https://luciancrainic.github.io/>
 %
-% Data Analysis e Visualization dei movimenti di pazienti con paura di cadere
+% Data Analysis e Visualization of the movements of patients with Fear of Falling.
 % 
-% Bachelor of Science in Computer Science Thesis, Sapienza University of Rome
+% Bachelor of Science in Computer Science Thesis, Sapienza University of Rome.
 %
 % https://github.com/LucianCrainic/Thesis/
 %
 % ============================================== %
 
+% Document Class
 \documentclass[binding=0.6cm]{sapthesis}
+
 % Packages
 \usepackage{microtype}
-\usepackage[italian]{babel}
+\usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 \usepackage{listings}
 \usepackage{xcolor}
  
@@ -45,17 +47,17 @@
 \lstset{style=mystyle}
 
 % Metadata
-\hypersetup{pdftitle={Data Analysis e Visualization dei movimenti di pazienti con paura di cadere},pdfauthor={Lucian Dorin Crainic}}
-\title{Data Analysis e Visualization dei movimenti di pazienti con paura di cadere}
+\hypersetup{pdftitle={Thesis},pdfauthor={Lucian Dorin Crainic}}
+\title{Data Analysis and Visualization of the movements of patients with Fear of Falling}
 \author{Lucian Dorin Crainic}
 \IDnumber{1938430}
-\course{Laurea Triennale in Informatica}
-\courseorganizer{Facoltà di Ingegneria dell'Informazione, Informatica e Statistica}
+\course{Bachelor's Degree in Computer Science}
+\courseorganizer{Faculty of Information Engineering, Computer Science and Statistics}
 \AcademicYear{2023/2024}
 \advisor{Prof. Maurizio Mancini}
 \authoremail{crainic.lucian@gmail.com}
 \copyyear{2022}
-\thesistype{Tesi di Laurea Triennale}
+\thesistype{Bachelor's Thesis}
 
 % ================== DOCUMENT ==================
 \begin{document}
@@ -65,10 +67,18 @@
 \frontmatter
 
 \maketitle
-\cleardoublepage
 
-% Dedica 
-\dedication{Audentes Fortuna iuvat \\ \emph{Virgilio, Eneide, X, 284}}
+\dedication{
+    "When my bird was looking at my computer monitor, i thought 'woah, that bird
+    has no idea what he's looking at'. And yet, what does the bird doo, does he 
+    panic? No, he can't really panic, he just does the best he can. Is he 
+    able to live in a world where he's so ignorant? Well, he dosen't 
+    really have a choice. Yeah, he can kinda live.. usually the bird's okay,
+    even though he dosen't understand the world, and he can kinda learn
+    what's safe and what's dangerous. So uh, that's where I've been living."\\ \emph{ - Terry A. Davis}
+}
+
+%\let\cleardoublepage\clearpage
 
 % ================== ABSTRACT ==================
 \input{src/abstract.tex}
@@ -105,7 +115,7 @@
 %\phantomsection
 
 % ================== BIBLIOGRAPHY ==================
-\addcontentsline{toc}{chapter}{Bibliografia}
+\addcontentsline{toc}{chapter}{Bibliography}
 \bibliographystyle{sapthesis}
 \bibliography{/home/Lucian/Github/Thesis/Thesis-LaTeX/thesis/src/references.bib}
 
