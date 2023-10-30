@@ -19,7 +19,37 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{listings}
 \usepackage{xcolor}
- 
+\usepackage{geometry} % Adjust page margins if needed
+%\usepackage{forest}   % For creating custom trees
+\usepackage{caption}  % For customizing captions
+\usepackage{float}    % For forcing figures to stay in place
+\usepackage{lipsum}   % For generating dummy text
+
+\usepackage[edges]{forest}
+
+\definecolor{foldercolor}{RGB}{124,166,198}
+
+
+
+\tikzset{pics/folder/.style={code={%
+    \node[inner sep=0pt, minimum size=#1](-foldericon){};
+    \node[folder style, inner sep=0pt, minimum width=0.3*#1, minimum height=0.6*#1, above right, xshift=0.05*#1] at (-foldericon.west){};
+    \node[folder style, inner sep=0pt, minimum size=#1] at (-foldericon.center){};}
+    },
+    pics/folder/.default={20pt},
+    folder style/.style={draw=foldercolor!80!black,top color=foldercolor!40,bottom color=foldercolor}
+}
+
+\forestset{is file/.style={edge path'/.expanded={%
+        ([xshift=\forestregister{folder indent}]!u.parent anchor) |- (.child anchor)},
+        inner sep=1pt},
+    this folder size/.style={edge path'/.expanded={%
+        ([xshift=\forestregister{folder indent}]!u.parent anchor) |- (.child anchor) pic[solid]{folder=#1}}, inner ysep=0.6*#1},
+    folder tree indent/.style={before computing xy={l=#1}},
+    folder icons/.style={folder, this folder size=#1, folder tree indent=3*#1},
+    folder icons/.default={12pt},
+}
+
 % Settings
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{blue}{rgb}{0.01, 0.28, 1.0}
@@ -81,7 +111,7 @@
 %\let\cleardoublepage\clearpage
 
 % ================== ABSTRACT ==================
-\input{src/abstract.tex}
+\input{./chapter/abstract}
 
 \cleardoublepage
 
@@ -91,25 +121,25 @@
 \mainmatter
 
 % ================== CHAPTER 1 ==================
-\input{src/1.tex}
+\input{./chapter/1}
 
 % ================== CHAPTER 2 ==================
-\input{src/2.tex}
+\input{./chapter/2}
 
 % ================== CHAPTER 3 ==================
-\input{src/3.tex}
+\input{./chapter/3}
 
 % ================== CHAPTER 4 ==================
-\input{src/4.tex}
+\input{./chapter/4}
 
 % ================== CHAPTER 5 ==================
-\input{src/5.tex}
+\input{./chapter/5}
 
 % ================== CHAPTER 6 ==================
-\input{src/6.tex}
+\input{./chapter/6}
 
 % ================== ACKNOWLEDGMENTS ==================
-\input{src/ack.tex}
+\input{./chapter/ack}
 
 %\backmatter
 %\phantomsection
@@ -117,6 +147,6 @@
 % ================== BIBLIOGRAPHY ==================
 \addcontentsline{toc}{chapter}{Bibliography}
 \bibliographystyle{sapthesis}
-\bibliography{/home/Lucian/Github/Thesis/Thesis-LaTeX/thesis/src/references.bib}
+\bibliography{/Users/lucian/GitHub/Thesis/Thesis/src/references.bib}
 
 \end{document}
