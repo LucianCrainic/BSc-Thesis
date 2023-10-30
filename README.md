@@ -1,10 +1,13 @@
 <p align="center">
-  <h3 align="center">Data Analysis e Visualization dei movimenti di pazienti con paura di cadere</h3>
+  <h3 align="center">Data Analysis and Visualization of the movements of patients with Fear of Falling</h3>
 </p>
+
+> [!WARNING]  
+> This repository is work in progress. Everything is subject to change since the thesis is not completed yet. 
 
 > Thesis for the Bachelor's Degree in Computer Science at the University of Sapienza, Rome. 
 
-:gb: EN: Data Analysis and Visualization of the movements of patients with fear of falling
+:it: IT: Data Analysis e Visualization dei movimenti di pazienti con paura di cadere
 
 ## :hammer_and_wrench: Build the LaTeX document
 
