@@ -8,7 +8,6 @@ for Kinect Skeleton Data in Movement Classification</h3>
 
 > Thesis for the Bachelor's Degree in Computer Science at the University of Sapienza, Rome. 
 
-
 ## :hammer_and_wrench: Build the LaTeX document
 
 Requirements: `tectonic`
