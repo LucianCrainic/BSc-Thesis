@@ -1,5 +1,6 @@
 <p align="center">
-  <h3 align="center">Data Analysis and Visualization of the movements of patients with Fear of Falling</h3>
+  <h3 align="center">A Comparative Study of Machine Learning Models
+for Kinect Skeleton Data in Movement Classification</h3>
 </p>
 
 > [!WARNING]  
@@ -7,7 +8,6 @@
 
 > Thesis for the Bachelor's Degree in Computer Science at the University of Sapienza, Rome. 
 
-:it: IT: Data Analysis e Visualization dei movimenti di pazienti con paura di cadere
 
 ## :hammer_and_wrench: Build the LaTeX document
 

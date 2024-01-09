@@ -19,36 +19,19 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{listings}
 \usepackage{xcolor}
-\usepackage{geometry} % Adjust page margins if needed
-%\usepackage{forest}   % For creating custom trees
-\usepackage{caption}  % For customizing captions
-\usepackage{float}    % For forcing figures to stay in place
-\usepackage{lipsum}   % For generating dummy text
+\usepackage{geometry} 
+\usepackage{caption}  
+\usepackage{float}    
+\usepackage{lipsum}  
+\usepackage{xargs}                     
 
-\usepackage[edges]{forest}
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\info}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+\newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
 
-\definecolor{foldercolor}{RGB}{124,166,198}
-
-
-
-\tikzset{pics/folder/.style={code={%
-    \node[inner sep=0pt, minimum size=#1](-foldericon){};
-    \node[folder style, inner sep=0pt, minimum width=0.3*#1, minimum height=0.6*#1, above right, xshift=0.05*#1] at (-foldericon.west){};
-    \node[folder style, inner sep=0pt, minimum size=#1] at (-foldericon.center){};}
-    },
-    pics/folder/.default={20pt},
-    folder style/.style={draw=foldercolor!80!black,top color=foldercolor!40,bottom color=foldercolor}
-}
-
-\forestset{is file/.style={edge path'/.expanded={%
-        ([xshift=\forestregister{folder indent}]!u.parent anchor) |- (.child anchor)},
-        inner sep=1pt},
-    this folder size/.style={edge path'/.expanded={%
-        ([xshift=\forestregister{folder indent}]!u.parent anchor) |- (.child anchor) pic[solid]{folder=#1}}, inner ysep=0.6*#1},
-    folder tree indent/.style={before computing xy={l=#1}},
-    folder icons/.style={folder, this folder size=#1, folder tree indent=3*#1},
-    folder icons/.default={12pt},
-}
 
 % Settings
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -78,7 +61,7 @@
 
 % Metadata
 \hypersetup{pdftitle={Thesis},pdfauthor={Lucian Dorin Crainic}}
-\title{Data Analysis and Visualization of the movements of patients with Fear of Falling}
+\title{A Comparative Study of Machine Learning Models for Kinect Skeleton Data in Movement Classification}
 \author{Lucian Dorin Crainic}
 \IDnumber{1938430}
 \course{Bachelor's Degree in Computer Science}
@@ -98,25 +81,18 @@
 
 \maketitle
 
-\dedication{
-    "When my bird was looking at my computer monitor, i thought 'woah, that bird
-    has no idea what he's looking at'. And yet, what does the bird doo, does he 
-    panic? No, he can't really panic, he just does the best he can. Is he 
-    able to live in a world where he's so ignorant? Well, he dosen't 
-    really have a choice. Yeah, he can kinda live.. usually the bird's okay,
-    even though he dosen't understand the world, and he can kinda learn
-    what's safe and what's dangerous. So uh, that's where I've been living."\\ \emph{ - Terry A. Davis}
-}
-
-%\let\cleardoublepage\clearpage
+% ================== DEDICATION ==================
+% \dedication{
+%     It does not matter how slowly you go as long as you do not stop.\\ \emph{Confucius} 
+% }
 
 % ================== ABSTRACT ==================
-\input{./chapter/abstract}
+%\input{./chapter/abstract}
 
 \cleardoublepage
 
 \tableofcontents
-\cleardoublepage
+\let\cleardoublepage\clearpage
 
 \mainmatter
 
@@ -135,18 +111,28 @@
 % ================== CHAPTER 5 ==================
 \input{./chapter/5}
 
-% ================== CHAPTER 6 ==================
-\input{./chapter/6}
 
 % ================== ACKNOWLEDGMENTS ==================
-\input{./chapter/ack}
+%\input{./chapter/ack}
 
-%\backmatter
-%\phantomsection
+\backmatter
+\phantomsection
 
 % ================== BIBLIOGRAPHY ==================
 \addcontentsline{toc}{chapter}{Bibliography}
 \bibliographystyle{sapthesis}
 \bibliography{/Users/lucian/GitHub/Thesis/Thesis/src/references.bib}
+
+
+%! ================== Temp stuff ==================
+% \begin{lstlisting}
+%     # Comment test
+%     def my_range(start, end, step):
+%         while start <= end:
+%             start += step
+
+%     for x in my_range(1, 10, 0.5):
+%         print('Hello World!')
+% \end{lstlisting}
 
 \end{document}

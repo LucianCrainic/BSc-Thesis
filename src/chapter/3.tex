@@ -1,113 +1,24 @@
-
-
-
+% ============================================== %
+%
+% TODO: 
+%
+%% ============================================== %
 \chapter{Methodology}
-    \section{Data collection}
-        \subsection{Microsoft Kinect}
-            Microsoft Kinect is a line of motion sensing input devices that was 
-            first released in 2010. The Kinect sensor consists of a RGB cameras, and 
-            infrared projectos and detectors that allow it to measure depth. \cite{wikipedia_example}
-        \subsection{Usage}
+    \section{Overview of Models Analyzed}
+        \subsection{Scikit-Learn}  
+        \subsection{Models Selection}
+    \section{Selected Models for In-Depth Examination}
+        \subsection{Support Vector Machine}
+        \subsection{Random Forest}
+        \subsection{Gradient Boosting}
+        \subsection{Logistic Regression}
+        \subsection{Linear Discriminant Analysis}
+        \subsection{Multi-layer Perceptron}
+    \section{Data Splitting Methods}
+        \subsection{Ineffective Approach}
+        \subsection{Effective Approach}
+        \subsection{Sequential Data Approach}
+    \section{Feature Engineering}
+        \subsection{Feature Selection}
 
-    \section{Data description and processing}
-        In the following sections, we 
-
-    \subsection{Filesystem structure}
-
-    The dataset is structured in a filesystem-like structure, with the 
-    root directory being the \texttt{Data} directory. The \texttt{Data} directory
-    contains two subdirectories, \texttt{Patients} and \texttt{Questions}. 
-    The \texttt{Patients} directory contains a subdirectory for each patient, 
-    named \texttt{Patient-1}, \texttt{Patient-2}, etc. Each patient directory 
-    contains a subdirectory for each measurement, named \texttt{M000}, \texttt{M001}, etc.
-    Each measurement directory contains a subdirectory for each recording, 
-    named \texttt{R000}, \texttt{R001}, etc. Each recording directory contains a 
-    single file, named \texttt{file.csv}, which contains the data for that recording. 
-    The \texttt{Questions} directory contains a single file, 
-    named \texttt{Questions.xlsx}, which contains the questions asked to the patients.
-
-    \begin{figure}[htbp]
-        \centering
-        \begin{forest}
-            for tree={font=\sffamily,
-            folder indent=.9em, folder icons,
-            edge=densely dotted}
-            [FoF-Dataset
-              [Patients, this folder size=15pt
-                  [Patient-1
-                  [M000
-                  [R000
-                  [data.csv, is file]]]
-                  ]
-                  ]
-              [Questions, this folder size=15pt
-                  [Questions.xlxs, is file]]
-            ]
-        \end{forest}
-        \caption{Filesystem structure}
-    \end{figure}
-
-    In the following example, the patient is named \texttt{Patient-1}, which means that 
-    the patient ID is \texttt{1}. The patient ID is a number between 1 and 7. The dataset
-    contains 7 patients. For simplicity, since all the patients follow the same structure,
-    we will only show the structure of the first patient.
-    
-    \subsection{Patients data}
-
-    \subsection{Questions data}
-      
-        \begin{table}[htbp]
-            \centering
-            \begin{tabular}{|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{.5cm}|}
-                \hline
-                \textbf{Participant ID} & \textbf{Fallers/Non-fallers (5 past years)} & \textbf{Number of falls (past 2 years)} & \textbf{Was fall accidental?} & \textbf{Comments on the falls} & ... \\
-                \hline
-                Enter participant number & 0=NF 1=F & Enter a number if provided. Otherwise, leave blank & 0 = No fall 1 = Yes 2 = Not accidental &  & ... \\
-                \hline
-                01-300518 (example) & 1 & 1 & 1 & I fell over a kerb. I was in a hurry. & ... \\
-                \hline
-                ... & ... & ... & ... & ... & ... \\
-                \hline
-            \end{tabular}
-
-            \caption{Questions.xlsx file structure example}
-        \end{table}
-    \subsection{Movements description}
-        Each patient is required to perform a total of 9 movements. Each movement can be 
-        perfomed once or multiple times depending on the researcher's instructions. 
-        
-        \begin{table}[htbp]
-            \centering
-            \begin{tabular}{|p{1cm}|p{3cm}|p{8cm}|}
-                \hline
-                \textbf{ID} & \textbf{Name} & \textbf{Description} \\
-                \hline
-                M000 & Chair to Chair & Sit on a chair, stand up, walk to another chair, sit down, stand up and walk back to the initial chair and sit down. \\
-                \hline
-                M001 & Hoop walk & Walk around a hoop. \\
-                \hline
-                M002 & Cross-reach left & Cross and reach with the left hand. \\
-                \hline
-                M003 & Cross-reach right & Cross and reach with the right hand. \\
-                \hline
-                M004 & Right leg stand & Stand on the right leg for an amount of time. \\
-                \hline
-                M005 & Left leg stand & Stand on the left leg for an amount of time. \\
-                \hline
-                M006 & Reach forward & Reach forward with one arm. \\
-                \hline
-                M007 & Reach overhead & Reach overhead with one hand. \\
-                \hline
-                M008 & Mat walk & Walk over a mat. \\
-               \hline
-                M009 & Tug walk & TODO. \\
-                \hline
-            \end{tabular}
-
-            \caption{Questions.xlsx file structure example}
-        \end{table}
-
-        \textbf{ID} is the movement ID that is used in the dataset to identify the movement folder. 
-        For example the folder \textbf{M000} contains the data for the movement \textit{Chair to Chair}.
-
-        
+\cleardoublepage
