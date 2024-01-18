@@ -1,10 +1,21 @@
 % ============================================== %
 %
-% TODO: 
+% Conclusions and Future Work.
 %
 %% ============================================== %
 \chapter{Conclusions and Future Work}
+    In this chapter the conclusions of the thesis will be presented, along with the limitations and the future work that can be done to improve the results and research for better models.
     \section{Summary of Findings}
-    \section{Implications of the Research}
+        The following are the main findings of the thesis:
+        \begin{itemize}
+            \item Raw data recorded from the Kinect sensor is suitable for the task of movement classification, but it is not enough to achieve a high accuracy and the training time is very high.
+            \item Feature Engineering is a crucial step in the process of improving the accuracy of the models and reducing the training time. 
+            \item The best performing models in this thesis are Multi Layer Perceptron and Linear Discriminant Analysis with a score of \textbf{0.82} using 10 movements and \textbf{0.92} using 9 movements after removing one of the similar movements.
+            \item Splitting the data based on the patient ID is the correct approach to avoid data leakage and overfitting. 
+            \item Using a sequence of frames as input for the model is not a good approach for this task, due to every movement having a different number of frames which does not allow to have same size sequences that fit best with Machine Learning models.
+            \item Using the 3D visualization of the movements it was found that the movements Mat-Walk and Hoop-Walk are very similar, with the only difference being the object that the patient is walking over. Models struggle to differentiate between these two movements and it is recommended to remove one of them from the dataset for better results.
+        \end{itemize}
+    \section{Limitations of the Study}
+    
     \section{Recommendations for Future Research}
 \cleardoublepage
