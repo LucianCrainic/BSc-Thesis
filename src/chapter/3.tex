@@ -5,35 +5,35 @@
 %% ============================================== %
 \chapter{Methodology}
 \hypersetup{colorlinks=true, linkcolor=red}
-    In this chapter, the methodology used to split the data and train the models is presented. In addition, the fundamental concepts behind the models used are explained.
+    % In this chapter, the methodology used to split the data and train the models is presented. In addition, the fundamental concepts behind the models used are explained.
     \section{Overview of Models Analyzed}
-        In this comparative study a total of ten popular models are selected for analysis of their perfomance on Kinect-based data.
+        % In this comparative study a total of ten popular models are selected for analysis of their perfomance on Kinect-based data.
         \subsection{Scikit-Learn}  
-        % . \cite{scikit-learn}
+        % % . \cite{scikit-learn}
         \subsection{Models Selection}
-        The models presented in Table \ref{tab:movement_table} are used for the classification task. Selected on a basis of popularity and performance, these models are widely used in the machine learning community. The models are implemented using the \textit{scikit-learn} library and it's functions for training, testing and evaluating\cite{sklearn_api}. This selection is a starting point for the analysis of the data, and it can extended in the future to include more complex models once the data and its results on the current models are better understood.
+        % The models presented in Table \ref{tab:movement_table} are used for the classification task. Selected on a basis of popularity and performance, these models are widely used in the machine learning community. The models are implemented using the \textit{scikit-learn} library and it's functions for training, testing and evaluating\cite{sklearn_api}. This selection is a starting point for the analysis of the data, and it can extended in the future to include more complex models once the data and its results on the current models are better understood.
 
-        \begin{table}[ht]
-            \centering
-                \begin{tabular}{@{}cccc@{}}
-                    \toprule
-                    \textbf{No.} & \textbf{Model Name}\\
-                    \midrule
-                    1 & Support Vector Machine \\
-                    2 & Gaussian Naive Bayes \\
-                    3 & Random Forest \\
-                    4 & Gradient Boosting \\
-                    5 & Logistic Regression \\
-                    6 & Linear Discriminant Analysis \\
-                    7 & Multi-Layer Perceptron \\
-                    8 & K-Nearest Neighbors \\
-                    9 & AdaBoost \\
-                    10 & Decision Tree \\
-                    \bottomrule
-                \end{tabular}
-                \caption{Models selected for use in this thesis.}
-                \label{tab:movement_table}
-        \end{table}  
+        % \begin{table}[ht]
+        %     \centering
+        %         \begin{tabular}{@{}cccc@{}}
+        %             \toprule
+        %             \textbf{No.} & \textbf{Model Name}\\
+        %             \midrule
+        %             1 & Support Vector Machine \\
+        %             2 & Gaussian Naive Bayes \\
+        %             3 & Random Forest \\
+        %             4 & Gradient Boosting \\
+        %             5 & Logistic Regression \\
+        %             6 & Linear Discriminant Analysis \\
+        %             7 & Multi-Layer Perceptron \\
+        %             8 & K-Nearest Neighbors \\
+        %             9 & AdaBoost \\
+        %             10 & Decision Tree \\
+        %             \bottomrule
+        %         \end{tabular}
+        %         \caption{Models selected for use in this thesis.}
+        %         \label{tab:movement_table}
+        % \end{table}  
 
     \section{Analysis of Top-Performing Models}
         \subsection{Support Vector Machine}
@@ -46,7 +46,7 @@
     \section{Data Splitting Methods}
     %     Due to the structure of the data, the traditional approach of splitting the data into training and testing sets is not effective. Two different approaches will be presented, one ineffective and one effective.
 
-    %     \subsection{Traditional Approach}
+        \subsection{Traditional Approach} \label{sec:badsplit}
     %     In this approach the data is split into training and testing sets using the \textit{train\_test\_split} function from the \textit{sklearn.model\_selection} module. The data is split into 70\% training and 30\% testing. 
     
     %     \begin{lstlisting}[caption={Traditional approach to splitting the data into training and testing sets.}, label={lst:badsplit}]            
@@ -75,7 +75,7 @@
     %         \label{fig:badsplit}
     %     \end{figure}
 
-    %     \subsection{Effective Approach}
+        \subsection{Effective Approach} \label{sec:goodsplit}
     %     In this approach, the data is 
 
     %     \begin{figure}[H]
@@ -104,7 +104,7 @@
     %             return X_train, X_test, y_train, y_test
     %     \end{lstlisting}
 
-    %     \subsection{Sequential Data Approach}
+        \subsection{Sequential Data Approach} \label{sec:seqsplit}
     %     \begin{lstlisting}[caption={Effective approach to splitting the data into training and testing sets.}, label={lst:goodsplit}]
     %         def aggregate_features(sequences):
     %             return np.array([np.mean(sequence, axis=0) if sequence.size != 0 else np.zeros(sequence.shape[1]) for sequence in sequences])
@@ -150,7 +150,7 @@
     \section{Feature Engineering}
     %     Feature Engineering is the process of extracting features from raw data. In this thesis, the raw data is the Kinect Skeleton data, which is a series of 3D coordinates. The features extracted from the Kinect Skeleton data are presented in Table \ref{tab:movement_table}.
 
-    %     \subsection{Introduction to Features}
+        \subsection{Overview}
     %     \begin{table}[ht]
     %         \centering
     %         \begin{tabular}{@{}cccc@{}}
@@ -180,7 +180,7 @@
     %         \label{tab:movement_table}
     %     \end{table}  
               
-    %     \subsection{Feature Calculation Methods}
+        \subsection{Calculation Methods}
     %         The features presented in Table \ref{tab:movement_table} are calculated using the following methods. For each of the features, the formula used to calculate it is presented, along with a brief description.
 
     %         \subsubsection{Duration}
