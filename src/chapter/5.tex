@@ -1,21 +1,47 @@
 % ============================================== %
 %
-% Conclusions and Future Work.
+% Conclusions Chapter
+%
+%TODO: Read the whole chapter multiple times and look any spelling mistakes.
 %
 %% ============================================== %
-\chapter{Conclusions and Future Work}
-    In this chapter the conclusions of the thesis will be presented, along with the limitations and the future work that can be done to improve the results and research for better models.
-    \section{Summary of Findings}
-        The following are the main findings of the thesis:
-        \begin{itemize}
-            \item Raw data recorded from the Kinect sensor is suitable for the task of movement classification, but it is not enough to achieve a high accuracy and the training time is very high.
-            \item Feature Engineering is a crucial step in the process of improving the accuracy of the models and reducing the training time. 
-            \item The best performing models in this thesis are Multi Layer Perceptron and Linear Discriminant Analysis with a score of \textbf{0.82} using 10 movements and \textbf{0.92} using 9 movements after removing one of the similar movements.
-            \item Splitting the data based on the patient ID is the correct approach to avoid data leakage and overfitting. 
-            \item Using a sequence of frames as input for the model is not a good approach for this task, due to every movement having a different number of frames which does not allow to have same size sequences that fit best with Machine Learning models.
-            \item Using the 3D visualization of the movements it was found that the movements Mat-Walk and Hoop-Walk are very similar, with the only difference being the object that the patient is walking over. Models struggle to differentiate between these two movements and it is recommended to remove one of them from the dataset for better results.
-        \end{itemize}
-    \section{Limitations of the Study}
+\chapter{Conclusions}
+
+    This chapter presents the key findings of the thesis, highligthing its limitations and review potential approaches for future research to improve the results and develop more effective models.
+
+    \section{Discoveries}
+
+        Presented below are the key findings of this thesis: 
+        \begin{enumerate}
+            \item \textit{Preprocessed raw data} obtained from the Kinect sensor is suitable for the task of movement classification. However, it alone does not provide enough information for the models to obtain a high accuracy.
+            \item \textit{Feature engineering} is a crucial process of creating new features from the raw data with the goal of improving the accuracy and training time of the models.
+            \item \textit{Linear Discriminant Analysis} is the best perfoming model for this task, with a score of \textbf{0.82} using 10 movements and \textbf{0.93} using 9 movements after removing one of the similar movements and using a feature engineering approach.
+            \item \textit{Data splitting} tecniques are an essential step in the process of training the models, an incorrect split can lead to overfitting and an incorrect evaluation. Using the "Patient-ID" as a split criteria is the best approach to avoid any data leakage between the training and testing sets.
+            \item \textit{Sequence of frames} is not a good approach to take for this type of data, due to every movement having a variable number of frames and Machine Learning models need a fixed length input. Transforming the data into fixed length sequences will lead to a loss of information and a decrease in accuracy.
+            \item \textit{3D visualization} of the movements allow to visually identify and label them. It was found that "Mat-Walk" and "Hoop-Walk" movements are very similar, with the only difference being the object that the patient is walking over. This led to the models struggling to differentiate between these two movements and by removing one of them from the dataset the accuracy of the models improved.
+        \end{enumerate}
     
-    \section{Recommendations for Future Research}
-\cleardoublepage
+    \section{Limitations}
+
+        Limitations encountered in this work will be presented, along with an exploration of their impact and the strategies used to overcome them. \\
+
+        A list of 10 movements names was provided with the dataset, however the movements were not labeled accordingly to the list and only a unique ID has been assigned to each one. This led to the need of updating the labels after visually identifying them with the help of the 3D visualization. \\
+        While the data was collected an unknown number of movements have not been performed correctly by the patients. It was not possible to develop a tecnique that would identify and remove them, so they have been kept in the dataset. This limitation may have affected the accuracy of the models due to the noise introduced.\\
+
+        The dataset dimensions is relatively small, with only 10 movements and 21 patients. This led to only using the Training and Testing sets for the evaluation of the models, as the dataset was too small to split it into Training/Validation/Testing sets. A larger dataset is needed to split it into these sets and evaluate the models better. \\
+        Features calculated in the feature engineering step are not accurate to literature due to only using positional data from the Kinect sensor. However, they still provide enough information for the models to obtain a high accuracy.
+
+    \section{Future work}      
+
+        Kinect-based data is suitable for the task of movement classification, this leads to the possibility of implementing new tecniques and approaches to improve the accuracy of the models. \\
+
+        Feature engineering approach obtains a high accuracy and reduce the training time of the models by reducing the dimension of the original dataset. It is recommended to use it if the dataset is going to be scaled up to include more movements and patients, as the training time will increase exponentially.\\
+        The number of features have been reduced but it was not possible to tell which ones contribute the most to the accuracy of the models. In future work it is recommended to calculate the importance of each feature and remove the ones that do not contribute to the accuracy of the models. With the help of domain experts it is possible to calculate new and more meaningful features that can help the models differentiate between movements. \\
+        As stated before two movements (\textit{Mat-Walk} and \textit{Hoop-Walk}) are very similar. It is suggested to remove one of them from the dataset to obtain a realistic evaluation of the models, this will help to differentiate between movements that are very similar.\\
+        
+        This thesis only used Machine Learning models from the \textit{Scikit-Learn} library. It is possible to implement new models from the \textit{TensorFlow} library, such as \textit{Convolutional Neural Networks} and \textit{Long Short-Term Memory} networks. These models are more complex and require a larger dataset to train on, but they can obtain a higher accuracy than the models used in this thesis with a correct implementation. \\
+        It is crucial to acquire new data from the Kinect sensor, add new movements and patients. This will allow to scale up the dataset and study how the models perform on more classes and patients. \\
+
+        The possibles approaches for future work on this task are endless, above are only a few suggestions that can be implemented. The goal of this thesis was to study the feasibility of using Kinect-based data for movement classification, and provide a baseline for future research with this type of data. \\
+    
+    \cleardoublepage
