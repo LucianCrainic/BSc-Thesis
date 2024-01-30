@@ -6,7 +6,7 @@
 \hypersetup{colorlinks=true, linkcolor=red}
 \hypersetup{citecolor=blue}
 
-\chapter{Results and Discussion}
+\chapter{Results and Discussion} \label{chap:results_and_discussion}
 
     This chapter presents the result obtained from the expirements conducted in the previous chapter. Classification models are evaluated using different approaches and metrics. The results are then discussed and compared to each other.
 
@@ -36,7 +36,7 @@
                     
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=\textwidth,height=5cm,keepaspectratio=true]{../src/resources/kfold.png}
+                        \includegraphics[width=1.0\textwidth]{../src/resources/kfold.png}
                         \caption{
                           KFold Visualization from the scikit-learn documentation \cite{scikit-learn}.
                         }
@@ -47,7 +47,7 @@
                     
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=\textwidth,height=5cm,keepaspectratio=true]{../src/resources/groupkfold.png}
+                        \includegraphics[width=1.0\textwidth]{../src/resources/groupkfold.png}
                         \caption{
                           GroupKFold Visualization from the scikit-learn documentation \cite{scikit-learn}.
                         }
@@ -101,17 +101,17 @@
 
             These metrics will be used to show the effectiveness of the approaches proposed in this thesis.
     
-\section{Evaluation results}
+\section{Results}
         
-        Combining the validation methods and metrics presented above, the following tables will show the results obtained from the expirements conducted. The results are divided into two categories: \textbf{Exploratory} shows two approaches that were tested but did not obtain good results due to wrong implementation or loss of information. \textbf{Effective} shows two approaches that obtained good results and are suitable for this task. The results are presented in the following order: \textit{Traditional Approach}, \textit{Sequence Approach}, \textit{Effective Approach} and \textit{Feature Engineering Approach}. 
+        Combining the validation methods and metrics presented above, the following tables will show the results obtained from the expirements conducted. The results are divided into two categories: \textbf{Exploratory} shows two approaches that were tested but did not obtain good results due to wrong implementation or loss of information. \textbf{Effective} shows two approaches that obtained good results and are suitable for this task. The results are presented in the following order: \textit{Traditional approach}, \textit{Sequence approach}, \textit{Effective approach} and \textit{Feature Engineering approach}. 
 
         \subsection{Exploratory}
 
-            The following approaches are included because they a starting point in this thesis, and show the how different approaches can affect the accuracy of the models.
+            The following approaches are included because they are a starting point in this thesis, and show how different implementations can affect the accuracy of the models.
             
-            \subsubsection{Traditional Approach}
+            \subsubsection{Traditional approach}
                 
-                This approach was the first one to be tested and it got surprisingly good results. Such a simple approach and yet high accuracy raised doubts about the validity of the results, after further investigation it was discovered that the dataset was not properly split into training and testing sets as stated in Chapter \ref{sec:badsplit}. 
+                Pesented in Section \ref{sec:badsplit}, it was the first one to be tested and it got surprisingly good results. Such a simple approach and yet high accuracy raised doubts about the validity of the results, after further investigation it was discovered that the dataset was not properly split into training and testing sets. 
             
                 \begin{table}[htbp]
                     \centering
@@ -121,20 +121,20 @@
                         \toprule
                         \textbf{Model} & \textbf{Accuracy} & \textbf{F1} & \textbf{Recall} & \textbf{Precision} & \textbf{MCC} \\
                         \midrule
-                        Random Forest & \textbf{0.9958} & \textbf{0.9948} & \textbf{0.9950} & \textbf{0.9947} & \textbf{0.9953} \\
-                        K-Nearest Neighbor & 0.9847 & 0.9811 & 0.9814 & 0.9809 & 0.9826 \\
-                        Decision Tree & 0.9651 & 0.9596 & 0.9599 & 0.9594 & 0.9605 \\
-                        Support-Vector Machines & 0.8770 & 0.8605 & 0.8586 & 0.8667 & 0.8610 \\
-                        Logistic Regression & 0.8264 & 0.8048 & 0.8022 & 0.8097 & 0.8035 \\
+                        Random Forest & \textbf{0.99} & \textbf{0.99} & \textbf{0.99} & \textbf{0.99} & \textbf{0.99} \\
+                        K-Nearest Neighbors & 0.98 & 0.98 & 0.98 & 0.98 & 0.98 \\
+                        Decision Trees & 0.96 & 0.96 & 0.96 & 0.96 & 0.96 \\
+                        Support-Vector Machines & 0.87 & 0.86 & 0.85 & 0.86 & 0.86 \\
+                        Logistic Regression & 0.82 & 0.80 & 0.80 & 0.80 & 0.80 \\
                         \bottomrule
                     \end{tabular}
                 \end{table}
 
-                In Table \ref{tab:wrong_approach_holdout} the results obtained from the Hold-Out method are shown. High values are obtained for all the metrics, with \textbf{Random Forest} obtaining the highest values with a score of \textbf{0.9958} for accuracy. This confirmed the doubts about the validity of the results, a patient is both present in the training and testing set. This led to the models overfitting the data and obtaining high accuracy.
+                In Table \ref{tab:wrong_approach_holdout} the results obtained from the Hold-Out method are displayed. High values are obtained for all the metrics, with \textbf{Random Forest} obtaining the highest values with a score of \textbf{0.99} for accuracy. This confirmed the doubts about the validity of the results, a patient is both present in the training and testing set. This led to the models overfitting the data and obtaining high accuracy.
 
-            \subsubsection{Sequence Approach}
+            \subsubsection{Sequence approach}
 
-                This approach got the lowest results of all the approaches. It was tested to see if concatenating the frames of a movement into a sequence would help the models differentiate between movements as stated in Chapter \ref{sec:seqsplit}.
+                Presented in Section \ref{sec:seqsplit}, it achieved the lowest results of all the approaches. Tested to see if by concatenating the frames of a movement into a sequence would help the models differentiate between movements and obtain a higher accuracy. 
                 
                 \begin{table}[htbp]
                     \centering
@@ -144,26 +144,29 @@
                         \toprule
                         \textbf{Model} & \textbf{Accuracy} & \textbf{F1} & \textbf{Recall} & \textbf{Precision} & \textbf{MCC} \\
                         \midrule
-                        K-Nearest Neighbor & \textbf{0.5659} & \textbf{0.5414} & \textbf{0.5474} & \textbf{0.5497} & \textbf{0.5158} \\
-                        Random Forest & 0.5463 & 0.5289 & 0.5272 & 0.5550 & 0.4932 \\
-                        Support-Vector Machines & 0.5268 & 0.4716 & 0.4924 & 0.4677 & 0.4727 \\
-                        LogisticRegression & 0.4439 & 0.4156 & 0.4274 & 0.4352 & 0.3812 \\
-                        Decision Tree & 0.4390 & 0.4137 & 0.4190 & 0.4262 & 0.3749 \\
+                        K-Nearest Neighbors & \textbf{0.56} & \textbf{0.54} & \textbf{0.54} & \textbf{0.54} & \textbf{0.51} \\
+                        Random Forest & 0.55 & 0.52 & 0.53 & 0.53 & 0.49 \\
+                        Support-Vector Machines& 0.52 & 0.47 & 0.49 & 0.46 & 0.47 \\
+                        Logistic Regression & 0.44 & 0.41 & 0.42 & 0.43 & 0.38 \\
+                        Decision Trees & 0.41 & 0.38 & 0.39 & 0.40 & 0.34 \\
                         \bottomrule
                     \end{tabular}
                 \end{table}
 
-                In Table \ref{tab:sequence_approach_holdout} the results obtained from the Hold-Out method are shown. Low values are obtained for all the metrics, with \textbf{K-Nearest Neighbor} obtaining the highest values with a score of \textbf{0.5659} for accuracy. This results are considered low based on other approaches, however in the context of randomly guessing the movement of a patient the accuracy would be \textbf{0.1} as there are 10 movements. This means that the models are able to differentiate between movements, but not with a high accuracy. This approach was not used in the other approaches as it was not able to obtain a high accuracy.
+                In Table \ref{tab:sequence_approach_holdout} the results obtained from the Hold-Out method are displayed. Low values are obtained for all the metrics, with \textbf{K-Nearest Neighbor} obtaining the highest values with a score of \textbf{0.56} for accuracy. This results are considered low based on other approaches, however in the context of randomly guessing the movement of a patient the accuracy would be \textbf{0.10} as there are 10 movements. This means that the models are able to differentiate between movements, but the sequence implementation leads to a loss of information and a high accuracy cannot be obtained.
 
         \subsection{Effective}
+
                 The following approaches are the ones that obtained the best results and are suitable for this task. The main difference between the two approaches is the data used to train the models. The \textit{Correct Approach} uses the data as it is from the Kinect sensor, while the \textit{Feature Engineering Approach} uses the data after applying feature engineering techniques.
                 
-            \subsubsection{Effective Approach}
-                This approach is considered effective because the raw kinect data is able to obtain a high accuracy. The data is not modified in any way, beside the removal of rotational data and pre-processing the data to remove noise as described in Chapter \ref{sec:goodsplit}.\\
+            \subsubsection{Correct approach}
+
+                Presented in Section \ref{sec:goodsplit}, considered effective because the raw kinect data is able to obtain a high accuracy. The data is not modified in any way, beside the removal of rotational , state  and pre-processing the data to remove noise and outliers.\\
                  
-                In Table \ref{tab:correct_approach_holdout} the results obtain from the Hold-Out method are shown. \textbf{Random Forest} obtains the highest values for all the metrics, with a score of \textbf{0.7461} for accuracy. Other models such as \textit{Gradient Boosting}, \textit{Linear Discriminant Analysis}, \textit{Support-Vector Machines}, \textit{K-Nearest Neighbors} obtained great results as well with a score greater than \textbf{0.70} for accuracy. This confirms that the data obtained from the Kinect sensor is suitable for the task of movement classification without any major tweaks.\\
+                In Table \ref{tab:correct_approach_holdout} the results obtain from the Hold-Out method are shown. \textbf{Random Forest} obtains the highest values for all the metrics, with a score of \textbf{0.74} for accuracy. Other models such as \textit{Gradient Boosting}, \textit{Linear Discriminant Analysis}, \textit{Support-Vector Machines}, \textit{K-Nearest Neighbors} obtained great results as well with a score greater than \textbf{0.70} for accuracy. This confirms that the data obtained from the Kinect sensor is suitable for the task of movement classification without any major tweaks.\\
                 
                 \newpage
+
                 \begin{table}[htbp]
                     \centering
                     \caption{Evaluation results using \textbf{Hold-Out} validation method.}
@@ -172,154 +175,239 @@
                         \toprule
                         \textbf{Model} & \textbf{Accuracy} & \textbf{F1} & \textbf{Recall} & \textbf{Precision} & \textbf{MCC} \\
                         \midrule
-                        Random Forest & \textbf{0.7461} & \textbf{0.7322} & \textbf{0.7386} & \textbf{0.7302} & \textbf{0.7124} \\
-                        Gradient Boosting & 0.7344 & 0.7230 & 0.7260 & 0.7248 & 0.6989 \\
-                        Linear Discriminant Analysis & 0.7232 & 0.7157 & 0.7111 & 0.7421 & 0.6887 \\
-                        Support-Vector Machines & 0.7187 & 0.7182 & 0.7155 & 0.7274 & 0.6807 \\
-                        KNN & 0.7101 & 0.6971 & 0.6980 & 0.7031 & 0.6716 \\
-                        Logistic Regression & 0.6688 & 0.6467 & 0.6488 & 0.6468 & 0.6244 \\
-                        Decision Tree & 0.6553 & 0.6328 & 0.6468 & 0.6317 & 0.6109 \\
-                        Naive Bayes & 0.6333 & 0.6077 & 0.6105 & 0.6226 & 0.5840 \\
-                        Multi-Layer Perceptron & 0.6278 & 0.5962 & 0.6241 & 0.6131 & 0.5840 \\
-                        AdaBoost & 0.3563 & 0.2209 & 0.2888 & 0.2405 & 0.3205 \\
+                        Random Forest & \textbf{0.74} & \textbf{0.73} & \textbf{0.73} & \textbf{0.73} & \textbf{0.71} \\
+                        Gradient Boosting & 0.73 & 0.72 & 0.72 & 0.72 & 0.69 \\
+                        Linear-Discriminant Analysis & 0.72 & 0.71 & 0.71 & 0.74 & 0.68 \\
+                        Support-Vector Machines & 0.71 & 0.71 & 0.71 & 0.72 & 0.68 \\
+                        K-Nearest Neighbors & 0.71 & 0.69 & 0.69 & 0.70 & 0.67 \\
+                        Logistic Regression & 0.66 & 0.64 & 0.64 & 0.64 & 0.62 \\
+                        Multi-Layer Perceptron & 0.63 & 0.59 & 0.62 & 0.61 & 0.59 \\
+                        Naive Bayes & 0.63 & 0.60 & 0.61 & 0.62 & 0.58 \\
+                        Decision Trees & 0.63 & 0.60 & 0.62 & 0.61 & 0.58 \\
+                        Ada Boost & 0.35 & 0.22 & 0.28 & 0.24 & 0.32 \\
                         \bottomrule
                     \end{tabular}
                 \end{table}
 
-                In Table \ref{tab:correct_approach_holdout} \textbf{Hold-Out} validation method was used for all the models, while in Table \ref{tab:correct_approach_cv} \textbf{Cross-Validation} was used with only 3 models to compare the two validation methods and show that there is no major difference between them. The results obtained from the two methods are similar, with the Cross-Validation method obtaining slightly lower values for all the metrics. This is due to the fact that the Cross-Validation method is more robust and the results are averaged over a number of trials. \\
+                In Table \ref{tab:correct_approach_holdout} \textbf{Hold-Out} validation method was used for all the models, while in Table \ref{tab:correct_approach_cv} \textbf{Cross-Validation} was used with only 3 models to compare the two validation methods and show that there is no major difference between them. The results obtained from the two methods are similar. \\
 
-                Another observation is that the Hold-Out method was used for it's speed, with \textbf{10 minutes} of training time while cross-validation was run for hours without finishing. This is due to the fact that this approaches uses the raw Kinect data, which contains over \textbf{59000} rows and \textbf{100} columns. 
-
-                % In Table \ref{tab:correct_approach_holdout} \textbf{Hold-Out} validation method was used for all the models, while in Table \ref{tab:correct_approach_cv} \textbf{Cross-Validation} was used with only 3 models to compare the two validation methods and show that there is no major difference between them. The results obtained from the two methods are similar, with the Cross-Validation method obtaining slightly lower values for all the metrics. This is due to the fact that the Cross-Validation method is more robust and the results are averaged over a number of trials. \\
-                %! Cross-Validation vs Hold-Out in Correct Approach
-                \begin{table}[ht]
-                    \centering
-                    \caption{CV = Cross-Validation, HO = Hold-Out}
-                    \label{tab:correct_approach_cv}
-                    \begin{tabular}{lrrrrr}
-                        \toprule
-                        \textbf{Model} & \textbf{Accuracy} & \textbf{F1} & \textbf{Recall} & \textbf{Precision} & \textbf{MCC} \\
-                        \midrule
-                        LDA (CV) & 0.6362 & 0.6169 & 0.6025 & 0.6732 & 0.5942 \\
-                        LDA (HO) & 0.6362 & 0.6156 & 0.5987 & 0.6541 & 0.5905 \\
-                        KNN (CV) & 0.6127 & 0.5832 & 0.5919 & 0.5917 & 0.5632 \\
-                        KNN (HO) & 0.6292 & 0.5941 & 0.5971 & 0.5974 & 0.5788 \\
-                        Naive Bayes (CV) & 0.5884 & 0.5551 & 0.5621 & 0.6176 & 0.5414 \\
-                        Naive Bayes (HO) & 0.5747 & 0.5576 & 0.5538 & 0.5980 & 0.5180 \\
-                        \bottomrule
-                        \end{tabular}
-                \end{table}
+                Hold-Out method was used for it's speed, with \textbf{10 minutes} of training time while cross-validation run for hours without finishing. This is due to the fact that this approaches use the raw Kinect data, that contains over \textbf{59000} rows and \textbf{100} columns. 
                 
-                \newpage 
                 \begin{table}[htbp]
                     \centering
-                    \begin{minipage}{\linewidth}
-                        \centering
-                        \begin{tabular}{lrrrrr}
-                            \toprule
-                            \textbf{Model} & \textbf{Accuracy} & \textbf{F1 Score} & \textbf{Recall} & \textbf{Precision} & \textbf{MCC} \\
-                            \midrule
-                            Gradient Boosting & \textbf{0.7137} & \textbf{0.7059} & \textbf{0.7133} & \textbf{0.7048} & \textbf{0.6711} \\
-                            SVM & 0.7024 & 0.6860 & 0.6976 & 0.6909 & 0.6594 \\
-                            LDA & 0.6933 & 0.6829 & 0.6725 & 0.7233 & 0.6513 \\
-                            \bottomrule
-                        \end{tabular}
-                        \caption{Table 1}
-                        \vspace{5pt} 
-                
-                        \begin{tabular}{lrrrrr}
-                            \toprule
-                            \textbf{Model} & \textbf{Accuracy} & \textbf{F1 Score} & \textbf{Recall} & \textbf{Precision} & \textbf{MCC} \\
-                            \midrule
-                            SVM & \textbf{0.7073} & \textbf{0.6908} & \textbf{0.6984} & \textbf{0.6942} & \textbf{0.6630} \\
-                            LDA & 0.6890 & 0.6732 & 0.6651 & 0.7039 & 0.6452 \\
-                            Gradient Boosting & 0.6887 & 0.6798 & 0.6866 & 0.6817 & 0.6421 \\
-                            \bottomrule
-                        \end{tabular}
-                        \caption{Table 2}
-                    \end{minipage}
+                    \caption{Comparison of obtained results with Cross-Validation and Hold-Out methods. The metrics reported are (from top to bottom): Accuracy, F1, Recall, Precision, MCC.}
+                    \label{tab:correct_approach_cv}
+                    \begin{tabular}{|c|c|c|}
+                    \hline
+                    \textbf{Model} & \textbf{Cross-Validation} & \textbf{Hold-Out} \\ \hline
+                        Linear Discriminant Analysis    & 0.73 & 0.72 \\ 
+                                                        & 0.71 & 0.71 \\ 
+                                                        & 0.70 & 0.71 \\ 
+                                                        & 0.75 & 0.74 \\
+                                                        & 0.70 & 0.68 \\ 
+                                                        \hline
+                        K-Nearest Neighbors             & 0.71 & 0.71 \\ 
+                                                        & 0.70 & 0.69 \\ 
+                                                        & 0.70 & 0.69 \\ 
+                                                        & 0.71 & 0.70 \\
+                                                        & 0.68 & 0.67 \\
+                                                        \hline
+                        Naive Bayes                     & 0.66 & 0.63 \\ 
+                                                        & 0.62 & 0.60 \\ 
+                                                        & 0.63 & 0.62 \\
+                                                        & 0.66 & 0.61 \\ 
+                                                        & 0.62 & 0.58 \\ 
+                                                        \hline
+                    \end{tabular}
                 \end{table}
+                
+                In Table \ref{tab:correct_approach_mat_hoop} are displayed the results of a final approach, where two movements \textit{Mat-Walk} and \textit{Hoop-Walk} are removed from the dataset one at a time. The results show that the accuracy of the models increased by \textbf{4\%} to \textbf{5\%}. This is due to the fact that the two movements are very similar, and this caused the models to struggle to differentiate between them no matter the features used. \\
+                By removing either one of the movements, the models accuracy increased by the same amount. This leaves the decision to the user to choose which movement to remove based on the context of the application. 
 
-            \subsubsection{Feature Engineering Approach}
-            %! Feature Engineering Approach
-            % \begin{table}[ht]
-            %     \centering
-            %     \begin{tabular}{lrrrrr}
-            %         \toprule
-            %         \textbf{Model} & \textbf{Accuracy} & \textbf{F1 Score} & \textbf{Recall} & \textbf{Precision} & \textbf{MCC} \\
-            %         \midrule
-            %         MLP & \textbf{0.8291}& \textbf{0.8375} & \textbf{0.8426} & \textbf{0.8472} & \textbf{0.8111} \\
-            %         LDA & 0.8217 & 0.8125 & 0.8183 & 0.8298 & 0.8040 \\
-            %         Logistic Regression & 0.8094 & 0.8063 & 0.8168 & 0.8292 & 0.7915 \\
-            %         Random Forest & 0.8024 & 0.8146 & 0.8176 & 0.8255 & 0.7812 \\
-            %         Gradient Boosting & 0.7766 & 0.7849 & 0.7878 & 0.8063 & 0.7530 \\
-            %         SVM & 0.7631 & 0.7613 & 0.7802 & 0.7888 & 0.7428 \\
-            %         KNN & 0.7485 & 0.7590 & 0.7656 & 0.7758 & 0.7221 \\
-            %         Decision Tree & 0.7019 & 0.7069 & 0.7225 & 0.7175 & 0.6713 \\
-            %         Naive Bayes & 0.6808 & 0.6833 & 0.7036 & 0.7245 & 0.6510 \\
-            %         AdaBoost & 0.3869 & 0.3225 & 0.3970 & 0.3421 & 0.3465 \\
-            %         \bottomrule
-            %     \end{tabular}
-            %     \caption{todo}
-            % \end{table}
+                \begin{table}[htbp]
+                    \centering
+                    \caption{Comparison of obtained results with Mat-Walk and Hoop-Walk removed from the dataset. The metrics reported are (from top to bottom): Accuracy, F1, Recall, Precision, MCC.}
+                    \label{tab:correct_approach_mat_hoop}
+                    \begin{tabular}{|c|c|c|}
+                    \hline
+                    \textbf{Model} & \textbf{Hoop Walk Removed} & \textbf{Mat Walk Removed} \\ \hline
+                        Random Forest                   & 0.79 & 0.79 \\ 
+                                                        & 0.79 & 0.79 \\ 
+                                                        & 0.79 & 0.79 \\ 
+                                                        & 0.79 & 0.79 \\
+                                                        & 0.76 & 0.76 \\ 
+                                                        \hline
+                        Gradient Boosting               & 0.78 & 0.78 \\ 
+                                                        & 0.78 & 0.78 \\ 
+                                                        & 0.78 & 0.78 \\ 
+                                                        & 0.78 & 0.79 \\
+                                                        & 0.74 & 0.75 \\
+                                                        \hline
+                        Linear-Discriminant Analysis    & 0.76 & 0.76 \\ 
+                                                        & 0.77 & 0.77 \\ 
+                                                        & 0.76 & 0.76 \\
+                                                        & 0.80 & 0.79 \\ 
+                                                        & 0.73 & 0.73 \\ 
+                                                        \hline
+                    \end{tabular}
+                \end{table} 
 
-            %! Feature Engineering Approach - Hold-Out
-            % \begin{table}[ht]
-            %     \centering
-            %     \begin{tabular}{lrrrrr}
-            %         \toprule
-            %         \textbf{Model} & \textbf{Accuracy} & \textbf{F1 Score} & \textbf{Recall} & \textbf{Precision} & \textbf{MCC} \\
-            %         \midrule
-            %           LDA (HO) & 0.8049 & 0.8094 & 0.8085 & 0.8140 & 0.7823 \\
-            %           LDA (CV) & 0.8217 & 0.8125 & 0.8183 & 0.8298 & 0.8040 \\
-            %           Logistic Regression (HO) & 0.8000 & 0.8111 & 0.8141 & 0.8157 & 0.7777 \\
-            %           Logistic Regression (CV) & 0.8094 & 0.8063 & 0.8168 & 0.8292 & 0.7915 \\
-            %           Random Forest (HO) & 0.7805 & 0.7947 & 0.7936 & 0.8033 & 0.7558 \\
-            %           Random Forest (CV) & 0.8024 & 0.8146 & 0.8176 & 0.8255 & 0.7812 \\
-            %         \bottomrule
-            %         \end{tabular}
-            %     \caption{CV = Cross-Validation, HO = Hold-Out}
-            % \end{table}
+           \newpage 
 
-            %! No mat walk vs no hoop walk - Correct Approach
-            % \begin{table}[htbp]
-            %     \centering
-            %     \begin{minipage}{\linewidth}
-            %         \centering
-            %         \begin{tabular}{lrrrrr}
-            %             \toprule
-            %             \textbf{Model} & \textbf{Accuracy} & \textbf{F1 Score} & \textbf{Recall} & \textbf{Precision} & \textbf{MCC} \\
-            %             \midrule
-            %             LDA & \textbf{0.9310} & \textbf{0.9257} & \textbf{0.9256} & \textbf{0.9420} & \textbf{0.9232} \\
-            %             MLP & 0.9093 & 0.9121 & 0.9131 & 0.9245 & 0.8989 \\
-            %             Logistic Regression & 0.9040 & 0.9010 & 0.9016 & 0.9235 & 0.8937 \\
-            %             \bottomrule
-            %         \end{tabular}
-            %         \caption{Mat-Walk movement data removed from the dataset.}
-            %         \vspace{5pt} 
-            %         \begin{tabular}{lrrrrr}
-            %             \toprule
-            %             \textbf{Model} & \textbf{Accuracy} & \textbf{F1 Score} & \textbf{Recall} & \textbf{Precision} & \textbf{MCC} \\
-            %             \midrule
-            %             LDA & \textbf{0.9421} & \textbf{0.9407} & \textbf{0.9403} & \textbf{0.9515} & \textbf{0.9353} \\
-            %             MLP & 0.9206 & 0.9269 & 0.9278 & 0.9365 & 0.9115 \\
-            %             Logistic Regression & 0.9119 & 0.9181 & 0.9191 & 0.9292 & 0.9019 \\
-            %             \bottomrule
-            %         \end{tabular}
-            %         \caption{Hoop-Walk movement data removed from the dataset.}
-            %     \end{minipage}
-            % \end{table}
-    
-    \section{Discussion}
-            %! 
-
-            %! Show why by removing mat walk and hoop walk the accuracy increased 
-            % Cite the table where it shows that the accuracy increased by removing mat walk and hoop walk
-
-            % Show images how similiar the two movements, use plots.
-
-            %! Show why feature engineering is important and how it changes the accuracy of the models and the training time
+            \subsubsection{Feature engineering approach}
+                
+                Presented in Section \ref{sec:feature_engineering}, considered the most effective because it obtained the highest accuracy of all the approaches and it is the fastest to train. The data is modified by applying feature engineering techniques, this leads to the dataset having less rows and columns.
             
-            % Table that shows the training times for the various approaches.
+            \begin{table}[htbp]
+                \centering
+                \caption{Evaluation results using \textbf{Cross-Validation} method.}
+                \label{tab:feature_engineering_approach_cv}
+                \begin{tabular}{lrrrrr}
+                    \toprule
+                    \textbf{Model} & \textbf{Accuracy} & \textbf{F1} & \textbf{Recall} & \textbf{Precision} & \textbf{MCC} \\
+                    \midrule
+                    Linear-Discriminant Analysis & \textbf{0.82} & \textbf{0.82} & \textbf{0.83} & \textbf{0.84} & \textbf{0.81} \\
+                    Logistic Regression & 0.82 & 0.83 & 0.83 & 0.84 & 0.80 \\
+                    Multi-Layer Perceptron & 0.79 & 0.80 & 0.80 & 0.82 & 0.77 \\
+                    Gradient Boosting & 0.78 & 0.79 & 0.79 & 0.82 & 0.76 \\
+                    Random Forest & 0.76 & 0.77 & 0.78 & 0.80 & 0.74 \\
+                    Support-Vector Machines & 0.75 & 0.75 & 0.76 & 0.78 & 0.72 \\
+                    K-Nearest Neighbors & 0.73 & 0.73 & 0.74 & 0.75 & 0.70 \\
+                    Decision Trees & 0.67 & 0.67 & 0.69 & 0.69 & 0.64 \\
+                    Naive Bayes & 0.66 & 0.65 & 0.68 & 0.69 & 0.63 \\
+                    Ada Boost & 0.36 & 0.27 & 0.35 & 0.29 & 0.31 \\
+                    \bottomrule
+                \end{tabular}
+            \end{table}
 
-    \cleardoublepage
+            In Table \ref{tab:feature_engineering_approach_cv} the results obtained from the Cross-Validation method are displayed. High values are obtained for all the metrics, with \textbf{Linear Discriminant Analysis}  and \textbf{Logistic Regression} obtaining the highest values with a score of \textbf{0.82} for accuracy. Other models such as \textit{Multi-Layer Perceptron}, \textit{Gradient Boosting}, \textit{Random Forest}, \textit{Support Vector Machines}, \textit{K-Nearest Neighbors} obtained great results as well with a score greater than \textbf{0.70} for accuracy. 
+
+            \begin{table}[htbp]
+                \centering
+                \caption{Comparison of obtained results with Cross-Validation and Hold-Out methods. The metrics reported are (from top to bottom): Accuracy, F1, Recall, Precision, MCC.}
+                \label{tab:feature_engineering_approach_holdout}
+                \begin{tabular}{|c|c|c|}
+                \hline
+                \textbf{Model} & \textbf{Cross-Validation} & \textbf{Hold-Out} \\ \hline
+                    Linear Discriminant Analysis    & 0.82 & 0.81 \\ 
+                                                    & 0.82 & 0.81 \\ 
+                                                    & 0.83 & 0.81 \\ 
+                                                    & 0.84 & 0.82 \\
+                                                    & 0.81 & 0.79 \\ 
+                                                    \hline
+                    Logistic Regression             & 0.82 & 0.78 \\ 
+                                                    & 0.83 & 0.79 \\ 
+                                                    & 0.83 & 0.79 \\ 
+                                                    & 0.84 & 0.79 \\
+                                                    & 0.80 & 0.75 \\
+                                                    \hline
+                    Gradient Boosting               & 0.78 & 0.76 \\ 
+                                                    & 0.79 & 0.77 \\ 
+                                                    & 0.79 & 0.78 \\
+                                                    & 0.82 & 0.79 \\ 
+                                                    & 0.72 & 0.73 \\ 
+                                                    \hline
+                \end{tabular}
+            \end{table}
+
+            \newpage
+
+            This confirms that the feature engineering techniques applied to the data are suitable for the task of movement classification. This approach is  also the fastest to train, with a training time of \textbf{1 minute}. \\
+
+            Table \ref{tab:feature_engineering_approach_holdout} shows the results obtained from the Hold-Out validation method. Similar to the ones obtained with Cross-Validation method, with a lower training time of \textbf{10 seconds}. However, Cross-Validation is preferred over Hold-Out because it is more used in the literature and robust.\\
+
+            In Table \ref{tab:feature_engineering_approach_mat_hoop} are displayed the results of the final approach used in the Correct approach. The results show that the accuracy of the models increased by \textbf{8\%} to \textbf{12\%}. This is a larger increse than the one obtained in the Correct approach, this is due to the fact that the feature engineering techniques applied are more informative than the raw Kinect data. Leading to the models being able to differentiate between the two movements more easily. \\
+
+            \begin{table}[htbp]
+                \centering
+                \caption{Comparison of obtained results with Mat-Walk and Hoop-Walk removed from the dataset. The metrics reported are (from top to bottom): Accuracy, F1, Recall, Precision, MCC.}
+                \label{tab:feature_engineering_approach_mat_hoop}
+                \begin{tabular}{|c|c|c|}
+                \hline
+                \textbf{Model} & \textbf{Hoop Walk Removed} & \textbf{Mat Walk Removed} \\ \hline
+                    Linear Discriminant Analysis    & 0.94 & 0.93 \\ 
+                                                    & 0.94 & 0.93 \\ 
+                                                    & 0.94 & 0.93 \\ 
+                                                    & 0.95 & 0.94 \\
+                                                    & 0.93 & 0.93 \\ 
+                                                    \hline
+                    Logistic Regression             & 0.90 & 0.90 \\ 
+                                                    & 0.91 & 0.90 \\ 
+                                                    & 0.91 & 0.90 \\ 
+                                                    & 0.92 & 0.92 \\
+                                                    & 0.89 & 0.89 \\
+                                                    \hline
+                    Multi-Layer Perceptron          & 0.90 & 0.89 \\ 
+                                                    & 0.90 & 0.90 \\ 
+                                                    & 0.91 & 0.90 \\
+                                                    & 0.92 & 0.91 \\ 
+                                                    & 0.89 & 0.88 \\
+                                                    \hline
+                \end{tabular}
+            \end{table}
+
+\newpage
+            
+\section{Discussion}
+        
+        This section will discuss the results obtained from the expirements conducted in the previous chapter. The difference between the approaches, the best performing models and the similarity between movements will be the topic of discussion. 
+
+        \subsubsection{Differences between approaches}
+            Four approaches were tested in this thesis, each one with a diffrent implementation. It was presented that \textit{Feature engineering} obtained the best results in terms of accuracy and training time. However, the \textit{Correct approach} also obtained great results but it was laking in training time. These two approaches were considere the most effective and suitable for the task of movement classification. Nevertheless, their implementation is completely different, with one using the raw Kinect data containing a very large number of rows and columns, while the other uses the data after applying feature engineering techniques transforming the data into a more informative dataset. This demonstrates how the approach used to solve a problem can affect the results obtained. 
+            The others two approaches \textit{Wrong approach} and \textit{Sequence approach}
+            prove that an incorrect data splitting method and a loss of information can lead to low accuracy. Their implementation is not suitable for this task but were a crucial step in the development phase to better understand why the models were not performing well. 
+
+        \subsubsection{Best performing models}
+            The models listed below obtained the best results in the two approaches considered effective. 
+
+            \begin{boxlabel}
+                \item \textbf{Random Forest} and \textbf{Gradient Boosting} are the two best performing models in the \textit{Correct approach} with a \textbf{0.74} and \textbf{0.73} accuracy score respectively.
+                \item \textbf{Linear Discriminant Analysis} and \textbf{Logistic Regression} are the two best performing models in the \textit{Feature engineering approach} with both scoring a \textbf{0.82} accuracy score.
+            \end{boxlabel}
+
+            The results above demonstrate how the models perform differently depending on the approach used, due to the fact that the used to train the models is of different dimension and information. 
+
+        \subsubsection{Movements similarity}   
+        
+            It was demonstrated in Table \ref{tab:correct_approach_mat_hoop} and Table \ref{tab:feature_engineering_approach_mat_hoop} that by removing \textit{Mat-Walk} and \textit{Hoop-Walk} from the dataset, the accuracy of the models increased.
+
+            This problem was first noticed when the confusion matrix was plotted for the \textit{Feature enginerring} approach using the \textit{Linear-Discriminant Analysis} model. In
+            Figure \ref{fig:cm_all} the Confusion Matrix of all 10 movements is displayed, the model is struggling to differentiate between movement 3 and 5 (Mat-Walk and Hoop-Walk). In Figure \ref{fig:cm_remove} one between Mat-Walk and Hoop-Walk is removed, the model does not struggle anymore to differentiate between the two movements.
+            
+            \begin{figure}[h]
+                \begin{subfigure}{.5\textwidth}
+                \centering
+                  \includegraphics[width=1.\linewidth]{../src/resources/plots/fe.png}
+                  \caption{10 Movements.}
+                  \label{fig:cm_all}
+                \end{subfigure}%
+                \begin{subfigure}{.5\textwidth}
+                \centering
+                  \includegraphics[width=1.\linewidth]{../src/resources/plots/fe-remove.png}
+                  \caption{9 Movements.}
+                  \label{fig:cm_remove}
+                \end{subfigure}
+                \caption{Confusion Matrix of Linear-Discriminant Analysis model using Feature Engineering approach.}
+            \end{figure}
+            
+            \newpage
+
+            To confirm this, \textit{3D Visualization} of the movements used in Section \ref{sec:movements_visualization} was used. A random sample of \textit{Mat-Walk} and \textit{Hoop-Walk} was plotted, in Figure \ref{fig: hoop-walk} and Figure \ref{fig: mat-walk} the two movements are displayed. The two movements are very similar due to the fact that they are both walking movements, the only difference is that in \textit{Mat-Walk} the patient is walking on a mat while in \textit{Hoop-Walk} the patient is walking in a hoop. This is the reason why the models struggle to differentiate between the two movements.
+
+            \begin{figure}[h]
+                \begin{subfigure}{.5\textwidth}
+                \centering
+                  \includegraphics[width=1.\linewidth]{../src/resources/mov-plots/mov-1.png}
+                  \caption{Hoop-Walk Movement.}
+                  \label{fig: hoop-walk}
+                \end{subfigure}
+                \begin{subfigure}{.5\textwidth}
+                \centering
+                  \includegraphics[width=1.\linewidth]{../src/resources/mov-plots/mov-8.png}
+                  \caption{Mat-Walk Movement.}
+                  \label{fig: mat-walk}
+                \end{subfigure}
+                \caption{3D Visualization plots of the two similar movements.}
+            \end{figure}
+
+\cleardoublepage

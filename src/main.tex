@@ -1,7 +1,7 @@
 % ============================================== %
 % Author:Lucian Dorin Crainic <https://luciancrainic.github.io/>
 %
-% Data Analysis e Visualization of the movements of patients with Fear of Falling.
+% A Comparative Study of Machine Learning Models for Kinect-Based Data in Movement Classification.
 % 
 % Bachelor of Science in Computer Science Thesis, Sapienza University of Rome.
 %
@@ -16,38 +16,48 @@
 \usepackage{microtype}
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
-% \usepackage[hidelinks]{hyperref}
 \usepackage{hyperref}
-\hypersetup{colorlinks=true, linkcolor=black}
-% \newcommand{\figcolref}[1]%
-% {\hypersetup{linkcolor=red}%
-% \ref{#1}%
-% \hypersetup{linkcolor=black}}
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{geometry} 
 \usepackage{caption}  
+\usepackage[edges]{forest}
+\usepackage{subcaption}
 \usepackage{float}    
 \usepackage{lipsum}  
 \usepackage{xargs}                     
 \usepackage{booktabs}
 \usepackage{graphicx}
-%\graphicspath{ {./resources/} }
-\usepackage{subcaption}
+\usepackage{makecell}
 \usepackage{booktabs}
 \usepackage{tabularx}
-% \usepackage[bottom]{footmisc}
 \usepackage{longtable}
 \usepackage{threeparttable}
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+
+% Commands and Settings
 \newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
 \newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
 \newcommandx{\info}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
 \newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
 \newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
-
-
-% Settings
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcounter{boxlblcounter}  
+\newcommand{\makeboxlabel}[1]{\fbox{#1.}\hfill}% \hfill fills the label box
+\newenvironment{boxlabel}
+  {\begin{list}
+    {\arabic{boxlblcounter}}
+    {\usecounter{boxlblcounter}
+     \setlength{\labelwidth}{3em}
+     \setlength{\labelsep}{0em}
+     \setlength{\itemsep}{2pt}
+     \setlength{\leftmargin}{1.5cm}
+     \setlength{\rightmargin}{2cm}
+     \setlength{\itemindent}{0em} 
+     \let\makelabel=\makeboxlabel
+    }
+  }
+{\end{list}}
 \lstdefinestyle{myStyle}{
     belowcaptionskip=1\baselineskip,
     breaklines=true,
@@ -64,8 +74,10 @@
 \lstset{style=mystyle}
 
 % Metadata
-\hypersetup{pdftitle={Thesis},pdfauthor={Lucian Dorin Crainic}}
-\title{A Comparative Study of Machine Learning Models for Kinect-Based Data in Movement Classification}
+\hypersetup{pdftitle={Thesis},pdfauthor={Lucian Dorin Crainic}, urlcolor=black, linkcolor=black, colorlinks=true}
+% \title{A Comparative Study of Machine Learning Models for Kinect-Based Data in Movement Classification}
+% \title{Machine Learning for Human Movement \\ Classification Based on Kinect Skeleton Data}
+\title{Machine Learning for Human Action Recognition Based on Kinect Skeleton Data}
 \author{Lucian Dorin Crainic}
 \IDnumber{1938430}
 \course{Bachelor's Degree in Computer Science}
@@ -115,9 +127,8 @@
 % ================== CHAPTER 5 ==================
 \input{./chapter/5}
 
-
 % ================== ACKNOWLEDGMENTS ==================
-%\input{./chapter/ack}
+% \input{./chapter/ack}
 
 \backmatter
 \phantomsection
