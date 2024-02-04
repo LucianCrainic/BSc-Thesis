@@ -5,18 +5,46 @@
 %% ============================================== %
 \hypersetup{colorlinks=true, linkcolor=blue, citecolor=red}
 \chapter{Dataset analysis} \label{chap:dataset_analysis}
-    %? Descrizione generale di cosa contiene il capitolo.
+
     In this chapter, the dataset used in this thesis is analyzed. The data collection methodology is described, along with the recording setup. The data structure and attributes are presented, along with the participants characteristics. Finally, the data processing steps are described.
 
     \section{Data collection methodology}
-        %? Riassunto di cosa è stato fatto per raccogliere i dati.
+        
         Data used in this thesis was collected at the Waterford Hospital in Ireland as part of a Fear of Falling study conducted on a group of 22 elderly individuals.  A Microsoft Kinect sensor was used to record the movements performed following a recording setup. 
+
         \subsection{Microsoft kinect}
+
+                The first generation of the Kinect sensor, Kinect V1 in Figure \ref{fig:kinect_sensor}, is a motion sensing input device developed by Microsoft and first released in 2010 for game consoles and Microsoft Windows PCs \cite{xu_validity_2015}. A new version of the Kinect sensor, Kinect V2, was released in 2014, with improved hardware and software \cite{cruz_kinect_2012}. 
+
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.6\textwidth]{./resources/kinect/kinect.png}
+                    \caption{Microsoft Kinect Sensor.}
+                    \label{fig:kinect_sensor}
+                \end{figure}
+
                     \subsubsection{Kinect sensor} 
 
-                    \subsubsection{Kinect skeletal tracking}
-        \newpage
+                        The Kinect Sensor is a horizontal bar connected to a small based with a motorized pivot and is designed to be positioned lengthwise above or below the video display. The device features a color camera, an Infrared (IR) emitter, an IR depth sensor, an engine for tilting, a microphone array, and an LED light \cite{abbasi_motion_2021}. The sensor is capable of sending three types of data: color images, 3D depth images, and bone information corresponding to the 3D imaging field \cite{zheng_cg-recognizer_2022}\cite{acis_classification_2023}. Along with its open source libraries, the Kinect system has helped to develop a wide range of applications in the fields of computer vision, robotics, and human-computer interaction. This is because the Kinect offers a cost effective and broadly accessible metod for capturing 3D human motion data, with the advantage of allowing users to interact with the system without the need for any physical devices \cite{gowing_kinect_2014}.
+                
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.6\textwidth]{./resources/kinect/joints.png}
+                            \caption{Skeletal joints recognized by the Kinect sensor \cite{jais_review_2015}.}
+                            \label{fig:kinect_sensor_v2}
+                        \end{figure}
 
+                    \subsubsection{PyKinect2}
+                        PyKinect2 is a Python library for Microsoft's Kinect v2 sensor. It provides a wrapper for the Kinect for Windows SDK 2.0, which allows for the use of the Kinect sensor in Python. The library abstracts the complex functionality of the Kinect v2 hardware into an easy-to-use API. Key feature include:
+                        \begin{itemize}
+                            \item \textbf{Skeletal Tracking}: detects and tracks human bodies, providing joint positions and orientations.
+                            \item \textbf{Color, Depth, and Infrared Streams}: Accesses raw sensor streams for visual processing or analysis.
+                            \item \textbf{Coordinate Mapping}: translates between differnet spatial representations. such as mapping skeletal joints to color or depth images for overlay visualization.
+                        \end{itemize}
+                        The library is a great bridge between the Kinect sensor and the Python programming language, allowing for the use of the sensor in a variety of applications \cite{GitHubKinectPyKinect2}.
+               
+                        \newpage
+                        
         \subsection{Recording setup}
 
                     The patient's data recording setup illustrated in Figure \ref{fig:kinect_setup} consists of consumer-level hardware (a laptop, a Kinect v2 depth camera, an external webcam, and a smartphone) and a dedicated application developed within the project. 
@@ -26,14 +54,16 @@
 
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=1.0\textwidth]{./resources/kinect/setup.png}
+                        \includegraphics[width=0.9\textwidth]{./resources/kinect/setup.png}
                         \caption{Kinect recording setup.}
                         \label{fig:kinect_setup}
                     \end{figure}
                     
+                    %\newpage 
+
                     The full-body capture mainly relies on the PyKinect library \cite{GitHubKinectPyKinect2}.
                     The library provides functions for getting the patient's body segment's position and rotation 25 times per second. The application gets the data and stores it as a multi-dimensional time series (one per body segment and coordinate type) in CSV files like the one shown in Figure \ref{fig:csv_structure}.
-
+                    \newpage
                     \begin{figure}[H]
                         \centering
                         \includegraphics[width=1.0\textwidth]{./resources/other/data.png}
@@ -84,7 +114,7 @@
             
             \begin{table}[H]
                 \centering
-                \caption{Joints recorded by the Kinect sensor.}
+                \caption{Joints processed with the PyKinect2 library.}
                 \label{tab:joints_recorded}
                 \begin{tabularx}{1.0\textwidth}{XXXX} 
                     \toprule
@@ -101,10 +131,9 @@
                 \end{tabularx}
             \end{table}
 
-     \newpage
-
     \section{Participants characteristics}
         The participants that took part in the study were 22 elderly individuals, in Figure \ref{fig:age_distribution} the age distribution of the patients is presented, with a median age of 67 years. 
+        \newpage 
         \begin{figure}[H]
             \centering
             \includegraphics[width=1.0\textwidth]{./resources/other/patients-age.png}
@@ -113,6 +142,7 @@
         \end{figure}
 
         In Figure \ref{fig:patients_characteristics} patients characteristics are presented. Fear of Falling is present in \textbf{57\%} of the patients, this is a relatively high percentage, due to the study being conducted on a Fear of Falling assessment group. The patients gender is dominated by females with a \textbf{95\%} of the patients, this is also expected since most studies in the literature had mostly female participants (>50\%) \cite{mackay_fear_2021}. The patients education is also presented, with the majority of the patients having a \textbf{Secondary} or \textbf{Third Level} education.
+        
         \begin{figure}[H]
             \centering
             \includegraphics[width=1.0\textwidth]{./resources/other/patients-char.png}
@@ -125,7 +155,7 @@
             The definition of \textbf{Fear of Falling} had various interpretations over the years. Initially, it was described as a phobic reaction to standing or walking. However, it was reclassified as a syndrome characterzied by the aftermath of a fall. As understanding developed, this fear was seen as a loss of confidence in one's balance ability. It was also further defined as an ongoing concern about falling, which leads to the avoidance of performing daily activities. Recently, it has been described as continous avoidance of activities due to the concern of falling. \cite{jung_fear_2008}
     
     \section{Movements visualization} \label{sec:movements_visualization}
-        %! Transformazione dei dati in un formato che può essere visualizzato.
+        
         Kinect-based data comes as a series of 3D coordinates, which can be visualized in 3D space. In this section, the implementation of the movements visualization is described. The visualization was implemented using the Python programming language and the Plotly library \cite{plotly}.
 
         The first step in the visualization process is to identify the set of joints to be used. In this approach, the dataset contains 25 joints but only 16 joints are used and are shown in Table \ref{tab:joints_selected}. 
@@ -147,28 +177,27 @@
                 \bottomrule
             \end{tabularx}
         \end{table}
-        The selected joints form toghether a skeleton, which is shown in Figure \ref{fig:kinect_skeleton}. The skeleton is used to visualize the movements performed by the participants. \\
+        
+        Once the joints are selected, the next step is to transform the data. In its original state the data is organized incorrectly for the 3D visualization, the y and z coordinates are inverted. To fix this, the y and z coordinates are swapped. \\
+        After the transformation is performed, the data is ready to be visualized. Snippet \ref{lst:visualization} shows the implementation of the visualization process, it begins by extracting joint coordinates and their connections, assigning colors and sizes to major joints,and configuring the 3D layout. Animation frames are generated by iterativly capturing snapshopts of joint positions and connections over time. These frames are then combined and displayed in an interactvie 3D plot, allowing the user to play the animation and rotate the plot to view the movement from different angles.
 
-        Once the joints are selected, the next step is to transform the data. In its original state the data is organized incorrectly for the 3D visualization, the y and z coordinates are inverted. To fix this, the y and z coordinates are swapped. The data is then transformed into a Pandas DataFrame, which is then used to create the 3D visualization. \\
-
-        \newpage
-
-        \begin{lstlisting}[caption={Traditional approach to splitting the data into training and testing sets.}, label={lst:badsplit}]            
-            for index, row in data_transformed.iterrows():
+        \begin{lstlisting}[caption={Code snippet creates connecting lines between joints using their 3D coordinates, enabling visualization of joint movements.}, label={lst:visualization}, language=Python]            
+            for index, row in data.iterrows():
                 x_values = [row[f"{joint}.px"] for joint in joints]
                 y_values = [row[f"{joint}.py"] for joint in joints]
                 z_values = [row[f"{joint}.pz"] for joint in joints]
                 lines = []
                 for connection in connections:
                     start, end = connection
-                    lines.append(
-                        go.Scatter3d(
+                    lines.append(go.Scatter3d(
                             x=[row[f"{start}.px"], row[f"{end}.px"]],
                             y=[row[f"{start}.py"], row[f"{end}.py"]],
-                            z=[row[f"{start}.pz"], row[f"{end}.pz"]],
-                        )
-                    )
+                            z=[row[f"{start}.pz"], row[f"{end}.pz"]],))
         \end{lstlisting}
+        
+        \newpage
+
+        In Figure \ref{fig:movements_visualization} a set of movements performed by the participants are presented. The movements are displayed in a 3D plot, with the x, y, and z axes representing the plot axes. 
 
         \begin{figure}[h]
             \begin{subfigure}{.5\textwidth}
@@ -197,11 +226,10 @@
                 \label{fig:mov-9}
             \end{subfigure}
             
-            \caption{Main caption}
+            \caption{Visualization of movements performed by the participants. Each plot is a 3D visualization containing frames that display the animation.}
             \label{fig:movements_visualization}
         \end{figure}
 
-        In Figure \ref{fig:movements_visualization} some of the movements performed by the participants are shown. The movements are shown in 3D, with the x, y, and z axes representing the coordinates of the joints. 
     \section{Data processing}
 
         Original dataset containing the Kinect skeleton data was processed to remove noise and outliers. This process is needed to improve the classification results. The data processing steps are described in the following sections.
