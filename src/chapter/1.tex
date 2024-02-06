@@ -1,16 +1,12 @@
-% ============================================== %
-%
-% Introduction Chapter
-%
-%% ============================================== %
 \hypersetup{colorlinks=true, linkcolor=blue, citecolor=red}
+
 \chapter{Introduction} \label{chap:introduction}
 
-    This thesis is structured in the following way: \textbf{Chapter} \ref{chap:introduction} presents the problem statement, literature review, dataset overview and the aims and objectives of the study. \textbf{Chapter} \ref{chap:dataset_analysis} presents the data collection methodology, data structure and attributes, participants characteristics, movements visualization and data processing. \textbf{Chapter} \ref{chap:methodology} presents the methodology used in this study, including the models used, data splitting and feature engineering. \textbf{Chapter} \ref{chap:results_and_discussion} presents the evaluation metrics used, the results obtained and the discussion of the results. Finally, \textbf{Chapter} \ref{chap:conclusions} presents the conclusions of this study and future work.
+    This thesis is structured in the following way: \textbf{Chapter} \ref{chap:introduction} presents the problem statement, literature review, dataset overview and the aims and objectives of the study. \textbf{Chapter} \ref{chap:dataset_analysis} presents the data collection methodology, data structure and attributes, participants characteristics, movements visualization and data processing. \textbf{Chapter} \ref{chap:methodology} presents the methodology used in this study, including the models, data splitting and feature engineering approaches. \textbf{Chapter} \ref{chap:results_and_discussion} presents the evaluation metrics used, the results obtained and the discussion of the results. Finally, \textbf{Chapter} \ref{chap:conclusions} presents the conclusions of this study and future work.
 
    \section{Problem statement}
 
-      Traditionally, movement classification requires high quality sensors and and complicated computer vision algorithms. However, with the advent of the Microsoft Kinect sensor and the release of the Kinect SDK \cite{jana_kinect_2012}, it is now possible to obtain high quality 3D skeleton data with a relatively low cost device and with minimal effort. This opens up the possibility of using this data to classify movements performed by individuals, which can be used in a variety of applications, such as rehabilitation, sports, and fall risk assessment. In this thesis, the focus is on the latter, with the goal of using Kinect skeleton data to classify movements performed by elderly individuals.
+      Traditionally, movement classification requires high quality sensors and and complicated computer vision algorithms. However, with the arrival of the Microsoft Kinect sensor and the release of the Kinect SDK \cite{jana_kinect_2012}, it is now possible to obtain high quality 3D skeleton data with a relatively low cost device and with minimal effort. This opens up the possibility of using this data to classify movements performed by individuals, which can be used in a variety of applications, such as rehabilitation, sports, and fall risk assessment. In this thesis, the focus is on the latter, with the goal of using Kinect skeleton data to classify movements performed by elderly individuals.
   
    \section{Literature review}
 
@@ -21,23 +17,20 @@
       Tan-Hsu et al. conducted a study that developed a detection system to identify both daily and abnormal activities in eldery individuals. The performance was evaluated using a fourfold cross validation approach, with a precision at 95,5\%, recall at 95,6\%, specificity at 99,8\%, accuracy at 99.6\%, and an F1 score of 95,3\%.\cite{tan_activity_2020}. 
       Weyan Ren et al. used the Kinect sensor to gather posture data from twenty individuals while lying in bed. Data was then subjected to a Machine Learning approach using the Support-Vector Machines architecture, resulting in a classification success rate of 97.1\% \cite{ren_human_2020}.
       \"{O}mer Faruk \.{I}nce et al. introduced an innovative biometric system designed to identify human activities within three dimensional space. The study used K-Nearest Neighbor algorithm as part of a Machine Learning approach for classification, achieving an accuracy of 86.1\%.  \cite{ince_human_2020}.
-      Pramod Kumar Pisharady and Marting Saerbeck presented a multi class algorithm for human posture detection and recognition. This algorithm remained invariant to changes in position and scale by leveraging geometric properties from Kinect data. Tested in both offline and real time applications, it achieved a classification succes of 95.78\%. \cite{pisharady_kinect_2013}.
+      Pramod Kumar Pisharady and Marting Saerbeck presented a multi class algorithm for human posture detection and recognition. This algorithm remained invariant to changes in position and scale by leveraging geometric properties from Kinect data. Tested in both offline and real time applications, it achieved a classification success of 95.78\%. \cite{pisharady_kinect_2013}.
       Wen-June Wang et al. introduced a method for accurately distinguish between various postures of five different individuals. A classification success rate exceeding 99\% was achieved. \cite{wang_gait_2021}.
 
-      % add gap between paragraphs
       \vspace{0.5cm}
       After reviewing the literature, a consistent trend was observed: the effectiveness of motion classification tends to reduce as the number of classes increases. Therefore, there is a recognized need for further research to improve classification perfomance in multi class scenarios \cite{acis_classification_2023}. This study is specially focused on improving classification accuracy across 10 distinct classes.
 
    \section{Dataset overview}
       
-      In this thesis, a dataset of Kinect skeleton data was used, provided by the PsyComp Lab. The dataset is composed of recorded movements performed by a group of 22 individuals. The movements were performed in front of a Kinect sensor, which recorded the movements and saved them as a series of 3D coordinates. The dataset contains 10 different movements, each performed a various number of times by each individual. The movements are listed in Table \ref{tab:movement_table}.
+      In this thesis, a dataset of Kinect skeleton data is used, provided by the PsyComp Lab. The dataset is composed of recorded movements performed by a group of 22 individuals. The movements are performed in front of a Kinect sensor, which recorded the movements and saved them as a series of 3D coordinates. The dataset contains 10 different movements, each performed a various number of times by each individual. The movements are listed in Table \ref{tab:movement_table}.
 
       \newpage
 
       \begin{table}[ht]
          \centering
-         \caption{Movements used in this study, along with a brief description.}
-         \label{tab:movement_table}
          \begin{tabular}{@{}ccc@{}}
             \toprule
             \textbf{No.} & \textbf{Movement Name} & \textbf{Description} \\
@@ -63,16 +56,18 @@
             10 & TUG Walk & \begin{tabular}[t]{@{}p{9cm}@{}} Starting from a sitting position, the subject is asked to stand up, walk 3 meters, turn around, walk back to the chair and sit down while being timed.\end{tabular} \\
             \bottomrule
          \end{tabular}
+         \caption{Movements used in this study, along with a brief description.}
+         \label{tab:movement_table}
    \end{table}
 
    \section{Objectives} 
       
-      In this thesis work the task that was se to be accomplished was to \textit{classify movements using kinect skeleton data}, this task was divided into several objectives that would help to accomplish it. The objectives are described as follows:
+      In this thesis work the task that is set to be accomplished is to \textit{classify movements using kinect skeleton data}, this task is divided into several objectives that would help to accomplish it. The objectives are described as follows:
 
       \begin{enumerate}
          \item Visualize and label the Kinect skeleton data using 3D plots animations.
          \item Preprocess data to remove noise and outliers for better classification results.
-         \item Analyze different approaches for handling the data, such as using raw data or applying Feature Engineering techniques.
+         \item Analyze different approaches for handling the data, such as using raw data or applying feature engineering techniques.
          \item Implement and evaluate various Machine Learning models. 
          \item Conduct a comprehensive comparative analysis of the perfomance of the models based on evaluation metrics and execution time.
          \item Provide insights into the interpretability of selected models, aiding in the understanding of the approaches used by the models to classify movements.
