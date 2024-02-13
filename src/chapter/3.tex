@@ -24,11 +24,11 @@
                 \toprule
                 \multicolumn{4}{c}{\textbf{Model Name}} \\
                 \midrule
-                1 & Support Vector Machine & 6 & Linear Discriminant Analysis \\
+                1 & Support-Vector Machines & 6 & Linear Discriminant Analysis \\
                 2 & Gaussian Naive Bayes & 7 & Multi-Layer Perceptron \\
-                3 & Random Forest & 8 & K Nearest Neighbors \\
-                4 & Gradient Boosting & 9 & AdaBoost \\
-                5 & Logistic Regression & 10 & Decision Tree \\
+                3 & Random Forests & 8 & K-Nearest Neighbors \\
+                4 & Gradient Boosting & 9 & Ada Boost \\
+                5 & Logistic Regression & 10 & Decision Trees \\
                 \bottomrule
             \end{tabular}
             \caption{Models selected for use in this thesis.}
@@ -39,7 +39,7 @@
         
         In this section models that performed best in Chapter \ref{chap:results_and_discussion} are analyzed in terms of their implementation.
 
-        \subsection{Random forest}
+        \subsection{Random forests}
            Also known as \textit{random decision forests}, it is a method of ensemble learning used for classification, regression, and various other tasks. It involves building numerous decision trees during a training phase. In classification tasks, the class chosen by a majority of trees is an output of the random forest \cite{ho_random_1998}.
 
            \begin{figure}[H]
@@ -51,7 +51,7 @@
             \label{fig:random_forest}
             \end{figure}
 
-            The main steps involved in building a random forest classifier are as follows:
+            The main steps involved in building a Random Forests classifier are as follows:
            
             \begin{enumerate}
                 \item Define $M$ as the number of features in each subset.
@@ -61,7 +61,7 @@
                 \item Classify test data by majority vote of all trees in the forest.
             \end{enumerate}
 
-            Random Forests consist of numerous decision trees. Randomization in tree building through sampling instances and feature subsets via bagging enhances diversity, reducing overfitting and improving generalization. Feature subsets $\theta_k$​ are chosen by bagging, and the importance of features is ranked by their impact on the model's accuracy "strength" and "correlation" of the forest are influenced by $M$, with optimal values providing a balance. Random forests efficiency is due to its parallel structure, accelerating classification significantly \cite{parmar_review_2019}.
+            Random Forests consist of numerous decision trees. Randomization in tree building through sampling instances and feature subsets via bagging enhances diversity, reducing overfitting and improving generalization. Feature subsets $\theta_k$​ are chosen by bagging, and the importance of features is ranked by their impact on the model's accuracy "strength" and "correlation" of the forest are influenced by $M$, with optimal values providing a balance. Random Forests efficiency is due to its parallel structure, accelerating classification significantly \cite{parmar_review_2019}.
             
         \subsection{Gradient boosting}
             Gradient Boosting is a Machine Learning method that refines predictions iteratively, combining strengths of simple models, like decision trees, into a more accurate ensemble. Each iteration, represented by $F_m(x)$, improves upon the last by adding a weighted decision tree $\rho_m h_m(x)$ that addresses the previous errors. The process follows the \textit{principle of gradient descent}, where $h_m(x)$ is trained to predict the negative gradient of a loss function, effectively reducing residual between the predicted and true values. Ensemble begins with a single model $F_0(x)$, which is updated by the formula:
@@ -81,14 +81,14 @@
         \newpage
 
         \subsection{Logistic regression}
-            Logistic Regression is a statistical model used for binary classification that predicts the probability of a binary response based on one or more predictor variables. It applies a logistic function to a linear combination of input features to produce a value between 0 and 1, interpreted as A probability of the instance being in a positive class.
+            Logistic Regression is a statistical model used for binary classification that predicts the probability of a binary response based on one or more predictor variables. It applies a logistic function to a linear combination of input features to produce a value between 0 and 1, interpreted as a probability of the instance being in a positive class.
             Equation \ref{eq:logistic_regression} shows the logistic function for binary classification.
 
             \begin{equation} \label{eq:logistic_regression}
                 P(Z) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 x)}}
             \end{equation}
 
-            In multi-class classification, the one vs rest approach involves training a separate logistic regression classifier for each class to distinguish that class from all other classes. For each classifier, the class is designed to identify as the positive class, and all others are lumped into a single negative class.
+            In multi-class classification, the One Vs Rest approach involves training a separate Logistic Regression classifier for each class to distinguish that class from all other classes. For each classifier, the class is designed to identify as the positive class, and all others are lumped into a single negative class.
             The logistic function is the same as for binary classification, presented in Equation \ref{eq:logistic_regression}. It is applied multiple times, one for each class.
             
             \begin{figure}[htbp]
@@ -118,8 +118,8 @@
 
             The simplicity and effectiveness of LDA, especially under assumptions of normality and equal class covariances, make it a powerful tool for classification \cite{balakrishnama_linear_nodate}.
 
-        \subsection{Multi layer perceptron}
-            Multi Layer Perceptron architecture includes at least three layers, an input layer, an output layer, and one or more hidden layers, each composed of nodes with non-linear activation functions \cite{svozil_introduction_1997}. They are referred to as "vanilla" neural networks \cite{hastie_elements_2009}.
+        \subsection{Multi-layer perceptron}
+            Multi-Layer Perceptron architecture includes at least three layers, an input layer, an output layer, and one or more hidden layers, each composed of nodes with non-linear activation functions \cite{svozil_introduction_1997}. They are referred to as "vanilla" neural networks \cite{hastie_elements_2009}.
 
         \begin{equation}\label{eq:tan}
             y(v_i) = \text{tanh}(v_i) 
@@ -176,7 +176,7 @@
                         \centering
                         \includegraphics[width=1.0\textwidth]{../src/resources/plots/splits/bad.png}
                         \caption{
-                            patient presence in both training and testing sets visualization.
+                            Patient presence in both training and testing sets visualization.
                         }
                         \label{fig:badsplit}
                     \end{figure}
@@ -206,7 +206,7 @@
         return X_train, X_test, y_train, y_test
 \end{lstlisting}
 
-            Figure \ref{fig:goodsplit} visualization demonstrates why this approach is effective. Data is split based on patients' unique IDs, so a model will be trained on data that will not be tested. This means that a model will be tested on unseen data, which is a good indicator of a model's performance.
+            Figure \ref{fig:goodsplit} visualization demonstrates why this approach is effective. Data is split based on patient's unique IDs, so a model will be trained on data that will not be tested. This means that a model will be tested on unseen data, which is a good indicator of a model's performance.
 
             \begin{figure}[H]
                 \centering
@@ -345,7 +345,7 @@ However, there are some drawbacks to this approach. The aggregation results in a
             
                 In Equation \ref{eq:area}, $P_i$ is a set of points representing trajectory of body part $i$ in 3D space, where $i \in \{1, 2, ..., n\}$ for $n$ body parts. The Convex hull of $P_i$ is denoted as $\text{Hull}(P_i)$, which is the smallest convex set that contains all points in $P_i$. Volume (area in 3D) of $\text{Hull}(P_i)$ is calculated using a formula for the volume of a convex polyhedron, which depends on the vertices of the hull. The total area calculated is a sum of the volumes of these convex hulls for specified body parts.
                 
-        \begin{lstlisting}[caption={Area calculation method using ConvexHull class from SciPy library.}] 
+        \begin{lstlisting}[caption={Area calculation method using ConvexHull class from SciPy library \cite{2020SciPy-NMeth}.}] 
         def area(df: pd.DataFrame, body_parts: list) -> float:
             def calculate(points: np.ndarray) -> float:
                 hull = ConvexHull(points)

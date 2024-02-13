@@ -8,7 +8,7 @@
 
         Presented below are the key findings of this thesis: 
         \begin{enumerate}
-            \item \textit{Preprocessed raw data} obtained from the Kinect sensor is suitable for this task of movement classification. However, it alone does not provide enough information for the models to obtain a high accuracy.
+            \item \textit{Pre-processed raw data} obtained from the Kinect sensor is suitable for this task of movement classification. However, it alone does not provide enough information for the models to obtain a high accuracy.
             \item \textit{Feature Engineering} is a crucial process of creating new features from raw data with the goal of improving the accuracy and training time of the models.
             \item \textit{Multi-Layer Perceptron} is the best-performing model for this task, with a score of \textbf{0.83} using 10 movements and \textbf{0.91} using 9 movements after removing one of the similar movements and using a Feature Engineering approach.
             \item \textit{Data splitting} techniques are an essential step in the process of training the models, an incorrect split can lead to overfitting and an incorrect evaluation. Using "Patient-ID" as a split criteria is the best approach to avoid any data leakage between training and testing sets.
@@ -30,11 +30,11 @@
 
         Kinect skeleton data is suitable for this task of movement classification, leading to the possibility of implementing new techniques and approaches to improve the accuracy of the models. \\
 
-        The feature Engineering approach obtains a high accuracy and reduces the training time of the models by reducing the dimension of the original dataset. It is recommended to use it if the dataset is going to be scaled up to include more movements and patients, as the training time will increase exponentially.\\
+        Feature Engineering approach obtains a high accuracy and reduces the training time of the models by reducing the dimension of the original dataset. It is recommended to use it if the dataset is going to be scaled up to include more movements and patients, as the training time will increase exponentially.\\
         The number of features has been reduced but it was not possible to tell which ones contribute most to the accuracy of the models. In future work, it is recommended to calculate the importance of each feature and remove the ones that do not contribute to the accuracy of the models. With the help of domain experts, it is possible to calculate new and more meaningful features that can help the models differentiate between movements. \\
         As stated before two movements (\textit{Mat Walk} and \textit{Hoop Walk}) are very similar. It is suggested to remove one of them from the dataset to obtain a realistic evaluation of the models, this will help to differentiate between movements that are very similar.\\
         
-        This thesis only used Machine Learning models from \textit{Scikit Learn} library. It is possible to implement new models from \textit{TensorFlow} library, such as \textit{Convolutional Neural Networks} and \textit{Long Short Term Memory} networks. These models are more complex and require a larger dataset to train on, but they can obtain a higher accuracy than models used in this thesis with a correct implementation. \\
+        This thesis only used Machine Learning models from \textit{Scikit-Learn} library. It is possible to implement new models from \textit{TensorFlow} library, such as \textit{Convolutional Neural Networks} and \textit{Long Short Term Memory} networks. These models are more complex and require a larger dataset to train on, but they can obtain a higher accuracy than models used in this thesis with a correct implementation. \\
         It is crucial to acquire new data from the Kinect sensor and add new movements and patients. This will allow us to scale up the dataset and study how models perform on more classes and patients. \\
 
         The possible approaches for future work on this task are endless, above are only a few suggestions that can be implemented. The goal of this thesis is to study the feasibility of using Kinect skeleton data for movement classification and provide a baseline for future research with this type of data. \\
