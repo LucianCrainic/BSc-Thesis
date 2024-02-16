@@ -2,7 +2,7 @@
 
 \chapter{Dataset analysis} \label{chap:dataset_analysis}
 
-    In this chapter, the dataset used in this thesis is analyzed. The data collection methodology is described, along with a recording setup. Data structure and attributes are presented, along with patients' characteristics. Finally, data processing steps are described.
+    In this chapter, the dataset used in this thesis is analyzed. The data collection methodology is described, along with a recording setup. Data structure and attributes are presented, along with patient's characteristics. Finally, data processing steps are described.
 
     \section{Data collection methodology}
         
@@ -135,7 +135,7 @@
             \label{fig:age_distribution}
         \end{figure}
 
-        In Figure \ref{fig:patients_characteristics} patients' characteristics are presented. \textbf{Fear of Falling} is present in \textbf{57\%} of patients, this is a relatively high percentage, due to the study being conducted on a Fear of Falling assessment group. Gender is dominated by \textbf{females} with a \textbf{95\%} of patients, this is also expected since most studies in literature had mostly female patients (>50\%) \cite{mackay_fear_2021}. Education is also presented, with the majority of patients having a \textbf{Secondary} or \textbf{Third Level} education.
+        In Figure \ref{fig:patients_characteristics} patient's characteristics are presented. \textbf{Fear of Falling} is present in \textbf{57\%} of patients, this is a relatively high percentage, due to the study being conducted on a Fear of Falling assessment group. Gender is dominated by \textbf{females} with a \textbf{95\%} of patients, this is also expected since most studies in literature had mostly female patients (>50\%) \cite{mackay_fear_2021}. Education is also presented, with the majority of patients having a \textbf{Secondary} or \textbf{Third Level} education.
         
         \begin{figure}[H]
             \centering
@@ -203,15 +203,15 @@
             \end{subfigure}
             \begin{subfigure}{.5\textwidth}
                 \centering
-                \includegraphics[width=.9\linewidth]{../src/resources/plots/movements/mov-1.png}
-                \caption{Hoop Walk}
+                \includegraphics[width=.9\linewidth]{../src/resources/plots/movements/mov-corrupted.png}
+                \caption{Chair to Chair corrupted}
                 \label{fig:mov-1}
             \end{subfigure}
             
             \begin{subfigure}{.5\textwidth}
                 \centering
                 \includegraphics[width=.9\linewidth]{../src/resources/plots/movements/mov-2.png}
-                \caption{Cross Reach Left}
+                \caption{Cross-Reach Left}
                 \label{fig:mov-2}
             \end{subfigure}
             \begin{subfigure}{.5\textwidth}
@@ -225,13 +225,15 @@
             \label{fig:movements_visualization}
         \end{figure}
 
+        Movement visualization allows for the identification of corrupted data, Figure \ref{fig:mov-1} displays a movement that is corrupted, it is not possible to identify the movement due to the data being incorrect. This led to further investigation and the identification of corrupted data in the dataset, all of the data of \textit{Patient-1} is corrupted and is removed from the dataset to not affect the classification task. This corruption is due to the patient not being in the field of view of the Kinect sensor, and the data is not recorded correctly.
+        
     \section{Data processing}
 
         An original dataset containing Kinect skeleton data is processed to remove noise and outliers. This process is needed to improve classification results. Data processing steps are described in the following sections.
         
         \subsection{Cleaning}
         
-        From the original dataset, a process of cleaning data is performed. Consisting of removing columns that contain zero values and the ones that are not needed for this classification task. Columns that are kept are listed in Table \ref{tab:joints_select}, only positional coordinates are kept, and state columns and rotation columns (x, y, z) are removed due to not giving any useful information.
+        From the original dataset, a process of cleaning data is performed. Consisting of removing columns that contain zero values and the ones that are not needed for this classification task. Columns that are kept are listed in Table \ref{tab:joints_select}, only positional coordinates are kept, and state columns and rotation columns (x, y, z) are removed due to not giving any useful information. As mentioned in Section \ref{sec:movements_visualization},  all corrupted data that is identified with the visualization process is removed from the dataset.
 
         \subsection{Normalization}
 
@@ -245,6 +247,6 @@
 
         \subsection{Transformation}
 
-        Once data cleaning and normalization are performed, it is transformed into a format that can be used for a classification task. Using the Scikit Learn library \cite{sklearn_api}, \textbf{MinMaxScaler} is used to scale data between 0 and 1 then \textbf{StandardScaler} is used to standardize it. After this process data is ready for a Machine Learning model.
+        Once data cleaning and normalization are performed, it is transformed into a format that can be used for a classification task. Using the Scikit-Learn library \cite{sklearn_api}, \textbf{MinMaxScaler} is used to scale data between 0 and 1 then \textbf{StandardScaler} is used to standardize it. After this process data is ready for a Machine Learning model.
 
 \cleardoublepage

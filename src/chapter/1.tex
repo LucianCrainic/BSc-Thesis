@@ -2,7 +2,7 @@
 
 \chapter{Introduction} \label{chap:introduction}
 
-   This thesis is structured in the following way: \textbf{Chapter} \ref{chap:introduction} presents the problem statement, literature review, dataset overview, aims, and objectives of the study. \textbf{Chapter} \ref{chap:dataset_analysis} presents the data collection methodology, data structure and attributes, patients' characteristics, movement visualization, and data processing. \textbf{Chapter} \ref{chap:methodology} presents the methodology used in this study, including the models, data splitting, and feature engineering approaches. \textbf{Chapter} \ref{chap:results_and_discussion} presents the evaluation metrics used, results obtained, and discussion of the results. Finally, \textbf{Chapter} \ref{chap:conclusions} presents conclusions of this study and future work.
+   This thesis is structured in the following way: \textbf{Chapter} \ref{chap:introduction} presents the problem statement, literature review, dataset overview, aims, and objectives of the study. \textbf{Chapter} \ref{chap:dataset_analysis} presents the data collection methodology, data structure and attributes, patient's characteristics, movement visualization, and data processing. \textbf{Chapter} \ref{chap:methodology} presents the methodology used in this study, including the models, data splitting methods, and Feature Engineering approach. \textbf{Chapter} \ref{chap:results_and_discussion} presents the evaluation metrics used, results obtained, and discussion of the results. Finally, \textbf{Chapter} \ref{chap:conclusions} presents conclusions of this study and future work.
 
    \section{Problem statement}
 
@@ -14,8 +14,8 @@
       Tao Wang et al. conducted a study that involved gait analysis using a Kinect sensor for automatic and real-time detection of depression. The model developed achieved a classification accuracy of 93.75\% \cite{wang_gait_2021}.
       Naveen Kumar Mangal and Anil Kumar Tiwari conducted a study that developed a filter to improve the quality of three-dimensional coordinate data surrounding the body. With the aim of generating a movement signature crucial for kinematic analysis of musculoskeletal disorders. Findings from the study revealed that the range of motion values derived from the proposed filter significantly improved the monitoring accuracy of skeletal joints using a Kinect sensor \cite{mangal_kinect_2020}. 
       Shalini Nehra and Jagdish Lal Raheja created a human activity recognition system designed for indoor monitoring and detection of daily activities using a Kinect sensor. The results demonstrated the system's consistently high accuracy across various datasets, as reported in \cite{nehra_unobtrusive_2020}.
-      Tan-Hsu Tan et al. conducted a study that developed a detection system to identify both daily and abnormal activities in elderly individuals. The performance was evaluated using a fourfold cross-validation approach, with precision at 95.5\%, recall at 95.6\%, specificity at 99.8\%, accuracy at 99.6\%, and an F1 score of 95.3\% \cite{tan_activity_2020}. 
-      Weiyan Ren et al. used a Kinect sensor to gather posture data from twenty individuals while lying in bed. Data was then subjected to a Machine Learning approach using support vector Machines architecture, resulting in a classification success rate of 97.1\% \cite{ren_human_2020}.
+      Tan-Hsu Tan et al. conducted a study that developed a detection system to identify both daily and abnormal activities in elderly individuals. The performance was evaluated using a fourfold Cross-Validation approach, with precision at 95.5\%, recall at 95.6\%, specificity at 99.8\%, accuracy at 99.6\%, and an F1 score of 95.3\% \cite{tan_activity_2020}. 
+      Weiyan Ren et al. used a Kinect sensor to gather posture data from twenty individuals while lying in bed. Data was then subjected to a Machine Learning approach using Support-Vector Machines architecture, resulting in a classification success rate of 97.1\% \cite{ren_human_2020}.
       \"{O}mer Faruk \.{I}nce et al. introduced an innovative biometric system designed to identify human activities within three-dimensional space. The study used the K-Nearest Neighbor algorithm as part of a Machine Learning approach for classification, achieving an accuracy of 86.1\% \cite{ince_human_2020}.
       Pramod Kumar Pisharady and Martin Saerbeck presented a multi-class algorithm for human posture detection and recognition. This algorithm remained invariant to changes in position and scale by leveraging geometric properties from Kinect data. Tested in both offline and real-time applications, it achieved a classification success of 95.78\% \cite{pisharady_kinect_2013}.
       Tao Wang et al. introduced a method for accurately distinguishing between various postures of five different individuals. A classification success rate exceeding 99\% was achieved \cite{wang_gait_2021}.
@@ -68,7 +68,7 @@
 
       \begin{enumerate}
          \item Visualize and label Kinect skeleton data using 3D plot animations.
-         \item Preprocess data to remove noise and outliers for better classification results.
+         \item Pre-process data to remove noise and outliers for better classification results.
          \item Analyze different approaches for handling data, such as using raw data or applying Feature Engineering techniques.
          \item Implement and evaluate various Machine Learning models. 
          \item Conduct a comprehensive comparative analysis of the performance of the models based on evaluation metrics and execution time.

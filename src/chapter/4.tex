@@ -49,9 +49,9 @@
                     \end{figure}
                 \end{itemize}
                 
-        An advantage of using \textit{Cross-Validation} over \textit{Hold-Out} is that all samples are used for both training and testing, and each sample is used for testing exactly once. This method helps to reduce the variance of the estimated performance of a model, by averaging results over several trials. A disadvantage of using cross-validation is that it is computationally expensive for very large datasets. \\ 
+        An advantage of using \textit{Cross-Validation} over \textit{Hold-Out} is that all samples are used for both training and testing, and each sample is used for testing exactly once. This method helps to reduce the variance of the estimated performance of a model, by averaging results over several trials. A disadvantage of using Cross-Validation is that it is computationally expensive for very large datasets. \\ 
 
-        In this thesis, both methods are used to evaluate the performance of the models. The Hold-out method is used to evaluate the performance of the models for \textit{Wrong approach} and \textit{Sequence approach} datasets due to their large dimensions. Cross-Validation method is used with the Hold-Out method to evaluate the performance of the models for \textit{Correct approach} and \textit{Feature Engineering approach} dataset due to them scoring the best results and being effective approaches. Confronting the results of two methods will show the correctness of an evaluation. \\
+        In this thesis, both methods are used to evaluate the performance of the models. The Hold-Out method is used to evaluate the performance of the models for \textit{Wrong approach} and \textit{Sequence approach} datasets due to their large dimensions. Cross-Validation method is used with the Hold-Out method to evaluate the performance of the models for \textit{Correct approach} and \textit{Feature Engineering approach} dataset due to them scoring the best results and being effective approaches. Confronting the results of two methods will show the correctness of an evaluation. \\
         
         \subsection{Metrics}
 
@@ -124,7 +124,7 @@
                     \label{tab:wrong_approach_holdout}
                 \end{table}
 
-                In Table \ref{tab:wrong_approach_holdout}, results obtained from the out method are presented. High values are obtained for all the metrics, with \textbf{Random Forest} obtaining the highest values with a score of \textbf{0.99} for accuracy. This confirmed doubts about the validity of results, a patient is both present in the training and testing set. This led to models \textbf{overfitting} the data and obtaining high accuracy.
+                In Table \ref{tab:wrong_approach_holdout}, results obtained from the Hold-Out method are presented. High values are obtained for all the metrics, with \textbf{Random Forests} obtaining the highest values with a score of \textbf{0.99} for accuracy. This confirmed doubts about the validity of results, a patient is both present in the training and testing set. This led to models \textbf{overfitting} the data and obtaining high accuracy.
 
             \subsubsection{Sequence approach}
 
@@ -147,7 +147,7 @@
                     \label{tab:sequence_approach_holdout}
                 \end{table}
 
-                In Table \ref{tab:sequence_approach_holdout}, results obtained from the out method are presented. Low values are obtained for all the metrics, with \textbf{K-Nearest Neighbor} obtaining the highest values with a score of \textbf{0.56} for accuracy. These results are considered low based on other approaches, however in the context of randomly guessing a movement of a patient accuracy would be \textbf{0.10} as there are 10 movements. This means that models can differentiate between movements, but sequence implementation leads to a loss of information and a high accuracy cannot be obtained.
+                In Table \ref{tab:sequence_approach_holdout}, results obtained from the Hold-Out method are presented. Low values are obtained for all the metrics, with \textbf{K-Nearest Neighbor} obtaining the highest values with a score of \textbf{0.56} for accuracy. These results are considered low based on other approaches, however in the context of randomly guessing a movement of a patient accuracy would be \textbf{0.10} as there are 10 movements. This means that models can differentiate between movements, but sequence implementation leads to a loss of information and a high accuracy cannot be obtained.
 
         \subsection{Effective}
 
@@ -155,9 +155,9 @@
                 
             \subsubsection{Correct approach}
 
-                Presented in Section \ref{sec:goodsplit}, considered effective because raw Kinect data can obtain a high accuracy. Data is not modified in any way, besides the removal of rotational, state, and pre-processing to remove noise and outliers.\\
+                Presented in Section \ref{sec:goodsplit}, considered effective because raw Kinect data can obtain a high accuracy. Data is not modified in any way, besides the removal of rotational and state data, and pre-processing to remove noise.\\
                  
-                In Table \ref{tab:correct_approach_holdout} results obtained from the Hold Out method are presented. \textbf{Random Forests} obtains the highest values for all the metrics, with a score of \textbf{0.74} for accuracy. Other models such as \textit{Gradient Boosting}, \textit{Linear Discriminant Analysis}, \textit{Support-Vector Machines}, \textit{K-Nearest Neighbors} obtained great results as well with a score greater than \textbf{0.70} for accuracy. This confirms that data obtained from the Kinect sensor is suitable for the task of movement classification without any major tweaks.\\
+                In Table \ref{tab:correct_approach_holdout} results obtained from the Hold-Out method are presented. \textbf{Random Forests} obtains the highest values for all the metrics, with a score of \textbf{0.74} for accuracy. Other models such as \textit{Gradient Boosting}, \textit{Linear-Discriminant Analysis}, \textit{Support-Vector Machines}, \textit{K-Nearest Neighbors} obtained great results as well with a score greater than \textbf{0.70} for accuracy. This confirms that data obtained from the Kinect sensor is suitable for the task of movement classification without any major tweaks.\\
                 
                 \newpage
 
@@ -169,8 +169,8 @@
                         \midrule
                         Random Forests & \textbf{0.74} & \textbf{0.73} & \textbf{0.73} & \textbf{0.73} & \textbf{0.71} \\
                         Gradient Boosting & 0.73 & 0.72 & 0.72 & 0.72 & 0.69 \\
-                        Linear Discriminant Analysis & 0.72 & 0.71 & 0.71 & 0.74 & 0.68 \\
-                        Support Vector Machines & 0.71 & 0.71 & 0.71 & 0.72 & 0.68 \\
+                        Linear-Discriminant Analysis & 0.72 & 0.71 & 0.71 & 0.74 & 0.68 \\
+                        Support-Vector Machines & 0.71 & 0.71 & 0.71 & 0.72 & 0.68 \\
                         K-Nearest Neighbors & 0.71 & 0.69 & 0.69 & 0.70 & 0.67 \\
                         Logistic Regression & 0.66 & 0.64 & 0.64 & 0.64 & 0.62 \\
                         Multi-Layer Perceptron & 0.63 & 0.59 & 0.62 & 0.61 & 0.59 \\
@@ -192,7 +192,7 @@
                     \begin{tabular}{|c|c|c|}
                     \hline
                     \textbf{Model} & \textbf{Cross-Validation} & \textbf{Hold-Out} \\ \hline
-                        Linear Discriminant Analysis    & 0.73 & 0.72 \\ 
+                        Linear-Discriminant Analysis    & 0.73 & 0.72 \\ 
                                                         & 0.71 & 0.71 \\ 
                                                         & 0.70 & 0.71 \\ 
                                                         & 0.75 & 0.74 \\
@@ -235,7 +235,7 @@
                                                         & 0.78 & 0.79 \\
                                                         & 0.74 & 0.75 \\
                                                         \hline
-                        Linear Discriminant Analysis    & 0.76 & 0.76 \\ 
+                        Linear-Discriminant Analysis    & 0.76 & 0.76 \\ 
                                                         & 0.77 & 0.77 \\ 
                                                         & 0.76 & 0.76 \\
                                                         & 0.80 & 0.79 \\ 
@@ -259,7 +259,7 @@
                     \midrule
                     Multi-Layer Perceptron & \textbf{0.83} & \textbf{0.83} & \textbf{0.84} & \textbf{0.84} & \textbf{0.81} \\
                     Logistic Regression & 0.82 & 0.83 & 0.83 & 0.84 & 0.80 \\
-                    Linear Discriminant Analysis & 0.81 & 0.82 & 0.83 & 0.84 & 0.80 \\
+                    Linear-Discriminant Analysis & 0.81 & 0.82 & 0.83 & 0.84 & 0.80 \\
                     Support-Vector Machines & 0.81 & 0.82 & 0.83 & 0.83 & 0.80 \\
                     Random Forests & 0.79 & 0.80 & 0.80 & 0.82 & 0.77 \\
                     Gradient Boosting & 0.78 & 0.79 & 0.79 & 0.82 & 0.76 \\
@@ -273,20 +273,20 @@
                 \label{tab:feature_engineering_approach_cv}
             \end{table}
 
-            In Table \ref{tab:feature_engineering_approach_cv} results obtained from the validation method are displayed. High values are obtained for all metrics, with \textbf{Multi-Layer Perceptron}  and \textbf{Logistic Regression} obtaining the highest values with a score of \textbf{0.83} and \textbf{0.82} for accuracy. Other models such as \textit{Linear Discriminant Analysis}, \textit{Gradient Boosting}, \textit{Random Forests}, \textit{Support-Vector Machines}, \textit{K-Nearest Neighbors} obtained great results as well with a score greater than \textbf{0.70} for accuracy. 
+            In Table \ref{tab:feature_engineering_approach_cv} results obtained from the Cross-Validation method are displayed. High values are obtained for all metrics, with \textbf{Multi-Layer Perceptron}  and \textbf{Logistic Regression} obtaining the highest values with a score of \textbf{0.83} and \textbf{0.82} for accuracy. Other models such as \textit{Linear-Discriminant Analysis}, \textit{Gradient Boosting}, \textit{Random Forests}, \textit{Support-Vector Machines}, \textit{K-Nearest Neighbors} obtained great results as well with a score greater than \textbf{0.70} for accuracy. 
 
             This confirms that Feature Engineering techniques applied to data are suitable for the task of movement classification. This approach is also the fastest to train, with a training time of \textbf{1 minute}. \\
 
-            Table \ref{tab:feature_engineering_approach_holdout} presents results obtained from the Hold-Out validation method. Similar to the ones obtained with the validation method, with a lower training time of \textbf{10 seconds}. However, Cross-Validation is preferred over Hold-Out because it is more used in literature and is robust.\\
+            Table \ref{tab:feature_engineering_approach_holdout} presents results obtained from the Hold-Out validation method. Similar to the ones obtained with the validation method, with a lower training time of \textbf{10 seconds}. However, Cross-Validation is preferred over Hold-Out because it is more used in literature.\\
 
-            Table \ref{tab:feature_engineering_approach_mat_hoop} presents the results of a final approach used in the Correct approach. Results show that the accuracy of the models increased by \textbf{8\%} to \textbf{12\%}. This is a larger increase than the one obtained in the Correct approach, this is due to the Feature engineering techniques applied to be more informative than raw Kinect data. Leading to models being able to differentiate between two movements more easily. \\
+            Table \ref{tab:feature_engineering_approach_mat_hoop} presents the results of a final approach used in the Correct approach. Results show that the accuracy of the models increased by \textbf{8\%} to \textbf{12\%}. This is a larger increase than the one obtained in the Correct approach, this is due to the Feature Engineering techniques applied to be more informative than raw Kinect data. Leading to models being able to differentiate between two movements more easily. \\
 
             \begin{table}[htbp]
                 \centering
                 \begin{tabular}{|c|c|c|}
                 \hline
                 \textbf{Model} & \textbf{Cross-Validation} & \textbf{Hold-Out} \\ \hline
-                    Linear Discriminant Analysis    & 0.81 & 0.82 \\ 
+                    Linear-Discriminant Analysis    & 0.81 & 0.82 \\ 
                                                     & 0.82 & 0.82 \\ 
                                                     & 0.83 & 0.83 \\ 
                                                     & 0.84 & 0.83 \\
@@ -326,7 +326,7 @@
                                                     & 0.92 & 0.92 \\
                                                     & 0.89 & 0.90 \\
                                                     \hline
-                    Linear Discriminant Analysis    & 0.91 & 0.90 \\ 
+                    Linear-Discriminant Analysis    & 0.91 & 0.90 \\ 
                                                     & 0.91 & 0.91 \\ 
                                                     & 0.91 & 0.91 \\ 
                                                     & 0.92 & 0.92 \\
@@ -343,14 +343,14 @@
         This section discusses results obtained from experiments conducted in the previous chapter. Differences between approaches, best-performing models, and similarities between movements are topics of discussion. 
 
         \subsubsection{Differences between approaches}
-            Four approaches are tested in this thesis, each one with a different implementation. It is presented that \textit{Feature Engineering approach} obtained the best results in terms of accuracy and training time. However, \textit{Correct approach} also obtained great results but it is lacking in training time. These two approaches are considered the most effective and suitable for this task of movement classification. Nevertheless, their implementation is completely different, with one using raw Kinect data containing a very large number of rows and columns, while the other uses data after applying Feature Engineering techniques transforming it into a more informative dataset. This demonstrates how an approach used to solve a problem can affect the results obtained. Other two approaches \textit{Wrong approach} and \textit{Sequence approach} prove that an incorrect data splitting method and a loss of information can lead to low accuracy. Their implementation is not suitable for this task but was a crucial step in the development phase to better understand why models were not performing well. 
+            Four approaches are tested in this thesis, each one with a different implementation. It is presented that \textit{Feature Engineering approach} obtained the best results in terms of accuracy and training time. However, \textit{Correct approach} also obtained great results but it is lacking in training time. These two approaches are considered the most effective and suitable for this task of movement classification. Nevertheless, their implementation is completely different, with one using raw Kinect data containing a very large number of rows and columns, while the other uses data after applying Feature Engineering techniques transforming it into a more informative dataset. This demonstrates how an approach used to solve a problem can affect the results obtained. Other two approaches \textit{Traditional approach} and \textit{Sequence approach} prove that an incorrect data splitting method and a loss of information can lead to low accuracy. Their implementation is not suitable for this task but was a crucial step in the development phase to better understand why models were not performing well. 
 
         \subsubsection{Best performing models}
             Models listed below obtained the best results in the two approaches considered effective. 
 
             \begin{boxlabel}
                 \item \textbf{Random Forests} and \textbf{Gradient Boosting} are two best performing models in \textit{Correct approach} with a \textbf{0.74} and \textbf{0.73} accuracy score respectively.
-                \item \textbf{Multi-Layer Perceptron} and \textbf{Logistic Regression} are two best performing models in \textit{Feature engineering approach} with a \textbf{0.83} and \textbf{0.82} accuracy score.
+                \item \textbf{Multi-Layer Perceptron} and \textbf{Logistic Regression} are two best performing models in \textit{Feature Engineering approach} with a \textbf{0.83} and \textbf{0.82} accuracy score.
             \end{boxlabel}
 
             The results above demonstrate how models perform differently depending on the approach used, due to data used to train models being of different dimensions and information. 
@@ -359,7 +359,7 @@
         
             It is demonstrated in Table \ref{tab:correct_approach_mat_hoop} and Table \ref{tab:feature_engineering_approach_mat_hoop} that by removing \textit{Mat Walk} and \textit{Hoop Walk} from the dataset, the accuracy of the models increased.
 
-            This problem is first noticed when a confusion matrix is plotted for \textit{Feature Engineering approach} using \textit{Multi-Layer Perceptron} model. In Figure \ref{fig:cm_all} Confusion Matrix of all 10 movements is displayed, the model is struggling to differentiate between movements 3 and 5 (Mat Walk and Hoop Walk). In Figure \ref{fig:cm_remove} one between Mat Walk and Hoop Walk is removed, the model does not struggle anymore to differentiate between the two movements.
+            This problem is first noticed when a Confusion Matrix is plotted for \textit{Feature Engineering approach} using \textit{Multi-Layer Perceptron} model. In Figure \ref{fig:cm_all} Confusion Matrix of all 10 movements is displayed, the model is struggling to differentiate between movements 3 and 5 (Mat Walk and Hoop Walk). In Figure \ref{fig:cm_remove} one between Mat Walk and Hoop Walk is removed, the model does not struggle anymore to differentiate between the two movements.
             
             \begin{figure}[h]
                 \begin{subfigure}{.5\textwidth}
@@ -379,19 +379,19 @@
             
             \newpage
 
-            To confirm this, \textit{3D Visualization} of movements used in Section \ref{sec:movements_visualization} is used. A random sample of \textit{Mat Walk} and \textit{Hoop Walk} is plotted, in Figure \ref{fig: hoop-walk} and Figure \ref{fig: mat-walk} two movements are displayed. They are very similar due to them being both walking movements, the only difference is that in \textit{Ma Walk} patient is walking on a mat while in \textit{Hoop Walk} patient is walking in a hoop. This is the reason why models struggle to differentiate between two movements.
+            To confirm this, \textit{3D Visualization} of movements used in Section \ref{sec:movements_visualization} is used. A random sample of \textit{Mat Walk} and \textit{Hoop Walk} is plotted, in Figure \ref{fig: hoop-walk} and Figure \ref{fig: mat-walk} two movements are displayed. They are very similar due to them being both walking movements, the only difference is that in \textit{Mat Walk} patient is walking on a mat while in \textit{Hoop Walk} patient is walking in a hoop. This is the reason why models struggle to differentiate between two movements.
 
             \begin{figure}[h]
                 \begin{subfigure}{.5\textwidth}
                 \centering
                   \includegraphics[width=1.\linewidth]{../src/resources/plots/movements/mov-1.png}
-                  \caption{Hoop Walk Movement.}
+                  \caption{Hoop Walk}
                   \label{fig: hoop-walk}
                 \end{subfigure}
                 \begin{subfigure}{.5\textwidth}
                 \centering
                   \includegraphics[width=1.\linewidth]{../src/resources/plots/movements/mov-8.png}
-                  \caption{Mat Walk Movement.}
+                  \caption{Mat Walk}
                   \label{fig: mat-walk}
                 \end{subfigure}
                 \caption{3D Visualization plots of two similar movements.}
