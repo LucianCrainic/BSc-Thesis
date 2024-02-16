@@ -203,8 +203,8 @@
             \end{subfigure}
             \begin{subfigure}{.5\textwidth}
                 \centering
-                \includegraphics[width=.9\linewidth]{../src/resources/plots/movements/mov-1.png}
-                \caption{Hoop Walk}
+                \includegraphics[width=.9\linewidth]{../src/resources/plots/movements/mov-corrupted.png}
+                \caption{Chair to Chair corrupted}
                 \label{fig:mov-1}
             \end{subfigure}
             
@@ -225,13 +225,15 @@
             \label{fig:movements_visualization}
         \end{figure}
 
+        Movement visualization allows for the identification of corrupted data, Figure \ref{fig:mov-1} displays a movement that is corrupted, it is not possible to identify the movement due to the data being incorrect. This led to further investigation and the identification of corrupted data in the dataset, all of the data of \textit{Patient-1} is corrupted and is removed from the dataset to not affect the classification task. This corruption is due to the patient not being in the field of view of the Kinect sensor, and the data is not recorded correctly.
+        
     \section{Data processing}
 
         An original dataset containing Kinect skeleton data is processed to remove noise and outliers. This process is needed to improve classification results. Data processing steps are described in the following sections.
         
         \subsection{Cleaning}
         
-        From the original dataset, a process of cleaning data is performed. Consisting of removing columns that contain zero values and the ones that are not needed for this classification task. Columns that are kept are listed in Table \ref{tab:joints_select}, only positional coordinates are kept, and state columns and rotation columns (x, y, z) are removed due to not giving any useful information.
+        From the original dataset, a process of cleaning data is performed. Consisting of removing columns that contain zero values and the ones that are not needed for this classification task. Columns that are kept are listed in Table \ref{tab:joints_select}, only positional coordinates are kept, and state columns and rotation columns (x, y, z) are removed due to not giving any useful information. As mentioned in Section \ref{sec:movements_visualization},  all corrupted data that is identified with the visualization process is removed from the dataset.
 
         \subsection{Normalization}
 

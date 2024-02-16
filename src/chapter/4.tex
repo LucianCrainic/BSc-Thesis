@@ -157,7 +157,7 @@
 
                 Presented in Section \ref{sec:goodsplit}, considered effective because raw Kinect data can obtain a high accuracy. Data is not modified in any way, besides the removal of rotational and state data, and pre-processing to remove noise.\\
                  
-                In Table \ref{tab:correct_approach_holdout} results obtained from the Hold-Out method are presented. \textbf{Random Forests} obtains the highest values for all the metrics, with a score of \textbf{0.74} for accuracy. Other models such as \textit{Gradient Boosting}, \textit{Linear Discriminant Analysis}, \textit{Support-Vector Machines}, \textit{K-Nearest Neighbors} obtained great results as well with a score greater than \textbf{0.70} for accuracy. This confirms that data obtained from the Kinect sensor is suitable for the task of movement classification without any major tweaks.\\
+                In Table \ref{tab:correct_approach_holdout} results obtained from the Hold-Out method are presented. \textbf{Random Forests} obtains the highest values for all the metrics, with a score of \textbf{0.74} for accuracy. Other models such as \textit{Gradient Boosting}, \textit{Linear-Discriminant Analysis}, \textit{Support-Vector Machines}, \textit{K-Nearest Neighbors} obtained great results as well with a score greater than \textbf{0.70} for accuracy. This confirms that data obtained from the Kinect sensor is suitable for the task of movement classification without any major tweaks.\\
                 
                 \newpage
 
@@ -169,8 +169,8 @@
                         \midrule
                         Random Forests & \textbf{0.74} & \textbf{0.73} & \textbf{0.73} & \textbf{0.73} & \textbf{0.71} \\
                         Gradient Boosting & 0.73 & 0.72 & 0.72 & 0.72 & 0.69 \\
-                        Linear Discriminant Analysis & 0.72 & 0.71 & 0.71 & 0.74 & 0.68 \\
-                        Support Vector Machines & 0.71 & 0.71 & 0.71 & 0.72 & 0.68 \\
+                        Linear-Discriminant Analysis & 0.72 & 0.71 & 0.71 & 0.74 & 0.68 \\
+                        Support-Vector Machines & 0.71 & 0.71 & 0.71 & 0.72 & 0.68 \\
                         K-Nearest Neighbors & 0.71 & 0.69 & 0.69 & 0.70 & 0.67 \\
                         Logistic Regression & 0.66 & 0.64 & 0.64 & 0.64 & 0.62 \\
                         Multi-Layer Perceptron & 0.63 & 0.59 & 0.62 & 0.61 & 0.59 \\
@@ -192,7 +192,7 @@
                     \begin{tabular}{|c|c|c|}
                     \hline
                     \textbf{Model} & \textbf{Cross-Validation} & \textbf{Hold-Out} \\ \hline
-                        Linear Discriminant Analysis    & 0.73 & 0.72 \\ 
+                        Linear-Discriminant Analysis    & 0.73 & 0.72 \\ 
                                                         & 0.71 & 0.71 \\ 
                                                         & 0.70 & 0.71 \\ 
                                                         & 0.75 & 0.74 \\
@@ -235,7 +235,7 @@
                                                         & 0.78 & 0.79 \\
                                                         & 0.74 & 0.75 \\
                                                         \hline
-                        Linear Discriminant Analysis    & 0.76 & 0.76 \\ 
+                        Linear-Discriminant Analysis    & 0.76 & 0.76 \\ 
                                                         & 0.77 & 0.77 \\ 
                                                         & 0.76 & 0.76 \\
                                                         & 0.80 & 0.79 \\ 
@@ -259,7 +259,7 @@
                     \midrule
                     Multi-Layer Perceptron & \textbf{0.83} & \textbf{0.83} & \textbf{0.84} & \textbf{0.84} & \textbf{0.81} \\
                     Logistic Regression & 0.82 & 0.83 & 0.83 & 0.84 & 0.80 \\
-                    Linear Discriminant Analysis & 0.81 & 0.82 & 0.83 & 0.84 & 0.80 \\
+                    Linear-Discriminant Analysis & 0.81 & 0.82 & 0.83 & 0.84 & 0.80 \\
                     Support-Vector Machines & 0.81 & 0.82 & 0.83 & 0.83 & 0.80 \\
                     Random Forests & 0.79 & 0.80 & 0.80 & 0.82 & 0.77 \\
                     Gradient Boosting & 0.78 & 0.79 & 0.79 & 0.82 & 0.76 \\
@@ -273,7 +273,7 @@
                 \label{tab:feature_engineering_approach_cv}
             \end{table}
 
-            In Table \ref{tab:feature_engineering_approach_cv} results obtained from the Cross-Validation method are displayed. High values are obtained for all metrics, with \textbf{Multi-Layer Perceptron}  and \textbf{Logistic Regression} obtaining the highest values with a score of \textbf{0.83} and \textbf{0.82} for accuracy. Other models such as \textit{Linear Discriminant Analysis}, \textit{Gradient Boosting}, \textit{Random Forests}, \textit{Support-Vector Machines}, \textit{K-Nearest Neighbors} obtained great results as well with a score greater than \textbf{0.70} for accuracy. 
+            In Table \ref{tab:feature_engineering_approach_cv} results obtained from the Cross-Validation method are displayed. High values are obtained for all metrics, with \textbf{Multi-Layer Perceptron}  and \textbf{Logistic Regression} obtaining the highest values with a score of \textbf{0.83} and \textbf{0.82} for accuracy. Other models such as \textit{Linear-Discriminant Analysis}, \textit{Gradient Boosting}, \textit{Random Forests}, \textit{Support-Vector Machines}, \textit{K-Nearest Neighbors} obtained great results as well with a score greater than \textbf{0.70} for accuracy. 
 
             This confirms that Feature Engineering techniques applied to data are suitable for the task of movement classification. This approach is also the fastest to train, with a training time of \textbf{1 minute}. \\
 
@@ -286,7 +286,7 @@
                 \begin{tabular}{|c|c|c|}
                 \hline
                 \textbf{Model} & \textbf{Cross-Validation} & \textbf{Hold-Out} \\ \hline
-                    Linear Discriminant Analysis    & 0.81 & 0.82 \\ 
+                    Linear-Discriminant Analysis    & 0.81 & 0.82 \\ 
                                                     & 0.82 & 0.82 \\ 
                                                     & 0.83 & 0.83 \\ 
                                                     & 0.84 & 0.83 \\
@@ -326,7 +326,7 @@
                                                     & 0.92 & 0.92 \\
                                                     & 0.89 & 0.90 \\
                                                     \hline
-                    Linear Discriminant Analysis    & 0.91 & 0.90 \\ 
+                    Linear-Discriminant Analysis    & 0.91 & 0.90 \\ 
                                                     & 0.91 & 0.91 \\ 
                                                     & 0.91 & 0.91 \\ 
                                                     & 0.92 & 0.92 \\
@@ -385,13 +385,13 @@
                 \begin{subfigure}{.5\textwidth}
                 \centering
                   \includegraphics[width=1.\linewidth]{../src/resources/plots/movements/mov-1.png}
-                  \caption{Hoop Walk.}
+                  \caption{Hoop Walk}
                   \label{fig: hoop-walk}
                 \end{subfigure}
                 \begin{subfigure}{.5\textwidth}
                 \centering
                   \includegraphics[width=1.\linewidth]{../src/resources/plots/movements/mov-8.png}
-                  \caption{Mat Walk.}
+                  \caption{Mat Walk}
                   \label{fig: mat-walk}
                 \end{subfigure}
                 \caption{3D Visualization plots of two similar movements.}

@@ -24,7 +24,7 @@
                 \toprule
                 \multicolumn{4}{c}{\textbf{Model Name}} \\
                 \midrule
-                1 & Support-Vector Machines & 6 & Linear Discriminant Analysis \\
+                1 & Support-Vector Machines & 6 & Linear-Discriminant Analysis \\
                 2 & Gaussian Naive Bayes & 7 & Multi-Layer Perceptron \\
                 3 & Random Forests & 8 & K-Nearest Neighbors \\
                 4 & Gradient Boosting & 9 & Ada Boost \\
@@ -100,8 +100,8 @@
                 \label{fig:logistic_regression}
             \end{figure}
 
-        \subsection{Linear discriminant analysis}
-            Linear Discriminant Analysis (LDA) is a method used in Statistics and Machine Learning to find a linear combination of features that separates two or more classes of objects or events. It does so by maximizing a ratio of between-class variance to a within-class variance in any particular data set, thereby ensuring maximum separability.
+        \subsection{Linear-discriminant analysis}
+            Linear-Discriminant Analysis (LDA) is a method used in Statistics and Machine Learning to find a linear combination of features that separates two or more classes of objects or events. It does so by maximizing a ratio of between-class variance to a within-class variance in any particular data set, thereby ensuring maximum separability.
 
             In a binary class, the goal is to find a linear combination $w$ that separates the classes. This involves computing mean vectors $m_1$ and $m_2$ for each class, within-class scatter matrix $S_W$, and between-class scatter matrix $S_B$. Linear discriminants are then the eigenvectors of $S_W^{-1}S_B$ \cite{xanthopoulos_linear_2013}. 
 
@@ -119,7 +119,7 @@
             The simplicity and effectiveness of LDA, especially under assumptions of normality and equal class covariances, make it a powerful tool for classification \cite{balakrishnama_linear_nodate}.
 
         \subsection{Multi-layer perceptron}
-            Multi-Layer Perceptron architecture includes at least three layers, an input layer, an output layer, and one or more hidden layers, each composed of nodes with non-linear activation functions \cite{svozil_introduction_1997}. They are referred to as "vanilla" neural networks \cite{hastie_elements_2009}.
+            Multi-Layer Perceptron architecture includes at least three layers, an input layer, an output layer, and one or more hidden layers, each composed of nodes with non-linear activation functions \cite{svozil_introduction_1997}. They are referred to as "vanilla" Neural Networks \cite{hastie_elements_2009}.
 
         \begin{equation}\label{eq:tan}
             y(v_i) = \text{tanh}(v_i) 
