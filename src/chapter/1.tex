@@ -2,15 +2,15 @@
 
 \chapter{Introduction} \label{chap:introduction}
 
-   This thesis is structured in the following way: \textbf{Chapter} \ref{chap:introduction} presents the problem statement, literature review, dataset overview, aims, and objectives of the study. \textbf{Chapter} \ref{chap:dataset_analysis} presents the data collection methodology, data structure and attributes, patient's characteristics, movement visualization, and data processing. \textbf{Chapter} \ref{chap:methodology} presents the methodology used in this study, including the models, data splitting methods, and Feature Engineering approach. \textbf{Chapter} \ref{chap:results_and_discussion} presents the evaluation metrics used, results obtained, and discussion of the results. Finally, \textbf{Chapter} \ref{chap:conclusions} presents conclusions of this study and future work.
+   This thesis is structured in the following way: \textbf{Chapter} \ref{chap:introduction} presents the problem statement, literature review, dataset overview, aims, and objectives of the study. \textbf{Chapter} \ref{chap:dataset_analysis} presents the data collection methodology, data structure and attributes, patient's characteristics, movement visualization, and data pre-processing. \textbf{Chapter} \ref{chap:methodology} presents the methodology used in this study, including the models, data splitting methods, and Feature Engineering approach. \textbf{Chapter} \ref{chap:results_and_discussion} presents the evaluation metrics used, results obtained, and discussion of the results. Finally, \textbf{Chapter} \ref{chap:conclusions} presents conclusions of this study and future work.
 
    \section{Problem statement}
 
-      Traditionally, movement classification requires high-quality sensors and complicated computer vision algorithms. However, with the arrival of the Microsoft Kinect sensor and the release of the Kinect SDK \cite{jana_kinect_2012}, it is now possible to obtain high-quality 3D skeleton data with a relatively low-cost device and with minimal effort. This opens up the possibility of using this data to classify movements performed by individuals, which can be used in a variety of applications, such as rehabilitation, sports, and fall risk assessment. In this thesis, the focus is on the latter, with the goal of using Kinect skeleton data to classify movements performed by elderly individuals.
+      Traditionally, movement classification requires high-quality sensors and complicated computer vision algorithms. However, with the arrival of the \textit{Microsoft Kinect sensor} and the release of the \textit{Kinect SDK} \cite{jana_kinect_2012}, it is now possible to obtain high-quality 3D skeleton data with a relatively low-cost device and with minimal effort. This opens up the possibility of using this data to classify movements performed by individuals, which can be used in a variety of applications, such as rehabilitation, sports, and fall risk assessment. In this thesis, the focus is on the latter, with the goal of using Kinect skeleton data to classify movements performed by elderly individuals.
   
    \section{Literature review}
 
-      In recent times, detection and classification of human activity have found a wide range of applications in various fields. Among various sensors used, the Kinect sensor stands out for its affordability and ease of use. S.A. Abdul Shukor and Nor Asilah Saidin. conducted a study utilizing a Kinect sensor to detect human falls. Their system demonstrated accurate results \cite{saidin_analysis_2020}. 
+      In recent times, detection and classification of human activity have found a wide range of applications in various fields. Among various sensors used, the Kinect sensor stands out for its affordability and ease of use. S.A. Abdul Shukor and Nor Asilah Saidin conducted a study utilizing a Kinect sensor to detect human falls. Their system demonstrated accurate results \cite{saidin_analysis_2020}. 
       Tao Wang et al. conducted a study that involved gait analysis using a Kinect sensor for automatic and real-time detection of depression. The model developed achieved a classification accuracy of 93.75\% \cite{wang_gait_2021}.
       Naveen Kumar Mangal and Anil Kumar Tiwari conducted a study that developed a filter to improve the quality of three-dimensional coordinate data surrounding the body. With the aim of generating a movement signature crucial for kinematic analysis of musculoskeletal disorders. Findings from the study revealed that the range of motion values derived from the proposed filter significantly improved the monitoring accuracy of skeletal joints using a Kinect sensor \cite{mangal_kinect_2020}. 
       Shalini Nehra and Jagdish Lal Raheja created a human activity recognition system designed for indoor monitoring and detection of daily activities using a Kinect sensor. The results demonstrated the system's consistently high accuracy across various datasets, as reported in \cite{nehra_unobtrusive_2020}.
@@ -23,11 +23,11 @@
 
       \vspace{0.5cm}
       
-      After reviewing the literature, a consistent trend was observed: the effectiveness of motion classification tends to reduce as the number of classes increases. Therefore, there is a recognized need for further research to improve classification performance in multi-class scenarios \cite{acis_classification_2023}. This study is specially focused on improving classification accuracy across 10 distinct classes.
+      After reviewing the literature, a consistent trend was observed: the effectiveness of motion classification tends to reduce as the number of classes increases. Therefore, there is a recognized need for further research to improve classification performance in multi-class scenarios \cite{acis_classification_2023}. This study is specially focused on improving classification accuracy across \textbf{10 distinct classes}.
 
    \section{Dataset overview}
       
-      In this thesis, a dataset of Kinect skeleton data is used. Composed of recorded movements performed by a group of 22 individuals in front of a Kinect sensor, data is saved as a series of 3D coordinates. It contains 10 different movements, each performed a various number of times by each individual. The movements are listed in Table \ref{tab:movement_table}.
+      In this thesis, a dataset of Kinect skeleton data is used. Composed of recorded movements performed by a group of \textbf{22 individuals} in front of a Kinect sensor, data is saved as a series of 3D coordinates. It contains \textbf{10 different movements}, each performed a various number of times by each individual. The movements are listed in Table \ref{tab:movement_table}.
 
       \newpage
 
@@ -64,7 +64,7 @@
 
    \section{Objectives} 
       
-      In this thesis work the task that is set to be accomplished is to \textit{classify movements using Kinect skeleton data}, this task is divided into several objectives that would help to accomplish it. Objectives are described as follows:
+      In this thesis work the task that is set to be accomplished is to \textbf{classify movements using Kinect skeleton data}, this task is divided into several objectives that would help to accomplish it. Objectives are described as follows:
 
       \begin{enumerate}
          \item Visualize and label Kinect skeleton data using 3D plot animations.

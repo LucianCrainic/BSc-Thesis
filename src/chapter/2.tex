@@ -2,15 +2,15 @@
 
 \chapter{Dataset analysis} \label{chap:dataset_analysis}
 
-    In this chapter, the dataset used in this thesis is analyzed. The data collection methodology is described, along with a recording setup. Data structure and attributes are presented, along with patient's characteristics. Finally, data processing steps are described.
+    In this chapter, the dataset used in this thesis is analyzed. The data collection methodology is described, along with a recording setup. Data structure and attributes are presented, along with patient's characteristics. Finally, data pre-processing steps are described.
 
     \section{Data collection methodology}
         
-        Data used in this thesis is collected at Waterford Hospital in Ireland as part of a Fear of Falling study conducted on a group of 22 elderly individuals. Following a recording setup a Microsoft Kinect is used to record movements performed. 
+        Data used in this thesis is collected at Waterford Hospital in Ireland as part of a \textit{Fear of Falling} study conducted on a group of 22 elderly individuals. Following a recording setup a Microsoft Kinect is used to record movements performed. 
 
         \subsection{Microsoft kinect}
 
-            The first generation of Kinect sensor, Kinect V1 in Figure \ref{fig:kinect_sensor}, is a motion sensing input device developed by Microsoft and first released in 2010 for game consoles and Microsoft Windows PCs \cite{xu_validity_2015}. A new version of a Kinect sensor, Kinect V2, was released in 2014, with improved hardware and software \cite{cruz_kinect_2012}. 
+            The first generation of Kinect sensor, \textit{Kinect V1} in Figure \ref{fig:kinect_sensor}, is a motion sensing input device developed by Microsoft and first released in 2010 for game consoles and Microsoft Windows PCs \cite{xu_validity_2015}. A new version of a Kinect sensor, \textit{Kinect V2}, was released in 2014, with improved hardware and software \cite{cruz_kinect_2012}. 
 
             \begin{figure}[H]
                 \centering
@@ -32,11 +32,11 @@
                         \end{figure}
 
                     \subsubsection{PyKinect2}
-                        PyKinect2 is a Python library for Microsoft's Kinect V2 sensor. It provides a wrapper for Kinect Windows SDK 2.0, which allows for the use of the sensor in Python. Library abstracts complex functionality of the hardware into an easy-to-use API. Key features include:
+                        \textit{PyKinect2} is a Python library for Microsoft's Kinect V2 sensor. It provides a wrapper for \textit{Kinect Windows SDK 2.0}, which allows for the use of the sensor in Python. Library abstracts complex functionality of the hardware into an easy-to-use API. Key features include:
                         \begin{itemize}
-                            \item \textbf{Skeletal tracking}: detects and tracks human bodies, providing joint positions and orientations.
-                            \item \textbf{Color, depth, and infrared streams}: Accesses raw sensor streams for visual processing or analysis.
-                            \item \textbf{Coordinate mapping}: translates between different spatial representations. Such as mapping skeletal joints to color or depth images for overlay visualization.
+                            \item Skeletal tracking: detects and tracks human bodies, providing joint positions and orientations.
+                            \item Color, depth, and infrared streams: Accesses raw sensor streams for visual processing or analysis.
+                            \item Coordinate mapping: translates between different spatial representations. Such as mapping skeletal joints to color or depth images for overlay visualization.
                         \end{itemize}
                         PyKinect2 library is a great bridge between Kinect sensor and Python programming language, allowing for the use of the sensor in a variety of applications \cite{GitHubKinectPyKinect2}.
                
@@ -45,9 +45,9 @@
         \subsection{Recording setup}
 
                     The patient's data recording setup illustrated in Figure \ref{fig:kinect_setup} consists of consumer-level hardware (a laptop, a Kinect V2 depth camera, an external webcam, and a smartphone) and a dedicated application developed within the project. 
-                    Once launched, an operator can display a sample stimulus on an external monitor to show target movements to patients (\textit{1. Stimulus playback}) so they can repeat (\textit{2. patient performs movement}) them by selecting one of them from a list in the application.
-                    Then, by pressing the "\textit{record}" button (\textit{3. record/analyze skeleton + RGB + accelerometer}), recording of the patient's full body movement can be started. 
-                    The application stores recorded patient's movement files in a separate folder, naming them based on their patient ID, movement ID, and repetition ID.
+                    Once launched, an operator can display a sample stimulus on an external monitor to show target movements to patients (1. Stimulus playback) so they can repeat (2. patient performs movement) them by selecting one of them from a list in the application.
+                    Then, by pressing the "record" button (3. record/analyze skeleton + RGB + accelerometer), recording of the patient's full body movement can be started. 
+                    The application stores recorded patient's movement files in a separate folder, naming them based on their \textbf{patient ID}, \textbf{movement ID}, and \textbf{repetition ID}.
 
                     \begin{figure}[H]
                         \centering
@@ -56,7 +56,7 @@
                         \label{fig:kinect_setup}
                     \end{figure}
 
-                    Full body capture mainly relies on the PyKinect library \cite{GitHubKinectPyKinect2}, which provides functions for getting the patient's body segment's position and rotation 25 times per second. The application gets the data and stores it as a multi-dimensional time series (one per body segment and coordinate type) in CSV files like the one displayed in Figure \ref{fig:csv_structure}.
+                    Full body capture mainly relies on the \textit{PyKinect library} \cite{GitHubKinectPyKinect2}, which provides functions for getting the patient's body segment's position and rotation \textbf{25 times per second}. The application gets the data and stores it as a multi-dimensional time series (one per body segment and coordinate type) in CSV files like the one displayed in Figure \ref{fig:csv_structure}.
                     \newpage
                     \begin{figure}[H]
                         \centering
@@ -65,7 +65,7 @@
                         \label{fig:csv_structure}
                     \end{figure}
 
-                    The accelerometer is captured via a smartphone running an app streaming 3D gyroscope data at 50 frames per second. Again, the application on the computer stores it as a multi-dimensional time series (one per rotation axis). Communication between smartphone and computer is based on a wireless network and Open Sound Control (OSC) protocol \cite{wright_open_nodate}.
+                    The accelerometer is captured via a smartphone running an app streaming 3D gyroscope data at 50 frames per second. Again, the application on the computer stores it as a multi-dimensional time series (one per rotation axis). Communication between smartphone and computer is based on a wireless network and \textit{Open Sound Control} (OSC) protocol \cite{wright_open_nodate}.
     
     \section{Data structure and attributes}
             
@@ -74,11 +74,11 @@
             \begin{figure}[H]
                 \centering 
                 \includegraphics[width=1.0\textwidth]{./resources/plots/patients/csv_files.png}
-                \caption{CSV files distribution between movements. \textit{M009} is the only movement with less than 68 files due to it not being performed multiple times by the patients.}
+                \caption{CSV files distribution between movements. M009 is the only movement with less than 68 files due to it not being performed multiple times by the patients.}
                 \label{fig:dataset_files}
             \end{figure}
         
-            The dataset is organized in a directory structure. Each patient has a folder named with their ID (\textit{Patient-ID}) and inside there are 10 folders for each movement, named with the movement ID (\textit{M-XXX}). For every movement folder, there is a folder for each repetition of the movement, named with a repetition ID (\textit{R-XXX}). Inside each repetition folder, there is a CSV file that contains Kinect skeleton data. In Figure \ref{fig:directory-structure} an example of a directory structure is displayed. \\
+            The dataset is organized in a directory structure. Each patient has a folder named with their ID (Patient-ID) and inside there are 10 folders for each movement, named with the movement ID (M-XXX). For every movement folder, there is a folder for each repetition of the movement, named with a repetition ID (R-XXX). Inside each repetition folder, there is a CSV file that contains Kinect skeleton data. In Figure \ref{fig:directory-structure} an example of a directory structure is displayed. \\
             
             \begin{figure}[htbp]
                 \centering
@@ -104,7 +104,7 @@
                 \label{fig:directory-structure}
             \end{figure}
 
-            a CSV file is organized as a series of columns, each column representing a joint in Table \ref{tab:joints_recorded} that a Kinect sensor records. Each joint is represented by 7 columns, one for each position and rotation coordinate (x, y, z) and one for the state (used to indicate if the joint is tracked or not). Besides joints columns, there are 2 columns for timestamp and datetime of the recording.
+            The CSV file is organized as a series of columns, each column representing a joint in Table \ref{tab:joints_recorded} that a Kinect sensor records. Each joint is represented by \textbf{7 columns}, one for each \textbf{position} and \textbf{rotation} coordinate (x, y, z) and one for the \textbf{state} (used to indicate if the joint is tracked or not). Besides joints columns, there are \textbf{2 columns} for timestamp and datetime of the recording.
             
             \begin{table}[H]
                 \centering
@@ -124,10 +124,12 @@
                 \caption{Joints processed with PyKinect2 library.}
                 \label{tab:joints_recorded}
             \end{table}
+    
+    \newpage 
 
     \section{Patients characteristics}
-        Patients that take part in the study are 22 elderly individuals, in Figure \ref{fig:age_distribution} age distribution is presented, with a median age of 67 years. 
-        \newpage 
+        Patients that take part in the study are 22 elderly individuals, in Figure \ref{fig:age_distribution} age distribution is presented, with a median age of \textbf{67 years}. 
+
         \begin{figure}[H]
             \centering
             \includegraphics[width=1.0\textwidth]{./resources/plots/patients/age.png}
@@ -135,7 +137,7 @@
             \label{fig:age_distribution}
         \end{figure}
 
-        In Figure \ref{fig:patients_characteristics} patient's characteristics are presented. \textbf{Fear of Falling} is present in \textbf{57\%} of patients, this is a relatively high percentage, due to the study being conducted on a Fear of Falling assessment group. Gender is dominated by \textbf{females} with a \textbf{95\%} of patients, this is also expected since most studies in literature had mostly female patients (>50\%) \cite{mackay_fear_2021}. Education is also presented, with the majority of patients having a \textbf{Secondary} or \textbf{Third Level} education.
+        In Figure \ref{fig:patients_characteristics} patient's characteristics are presented. \textit{Fear of Falling} is present in \textbf{57\%} of patients, this is a relatively high percentage, due to the study being conducted on a Fear of Falling assessment group. Gender is dominated by \textbf{females} with a \textbf{95\%} of patients, this is also expected since most studies in literature had mostly female patients (>50\%) \cite{mackay_fear_2021}. Education is also presented, with the majority of patients having a Secondary or Third Level education.
         
         \begin{figure}[H]
             \centering
@@ -146,13 +148,13 @@
 
         \subsubsection{What is fear of falling ?}
         
-            The definition of \textbf{Fear of Falling} had various interpretations over the years. Initially, it is described as a phobic reaction to standing or walking. However, it is reclassified as a syndrome characterized by the aftermath of a fall. As understanding develops, this fear is seen as a loss of confidence in one's balance ability. It is also further defined as an ongoing concern about falling, which leads to avoidance of performing daily activities. Recently, it has been described as continuous avoidance of activities due to a concern of falling \cite{jung_fear_2008}.
+            The definition of \textit{Fear of Falling} had various interpretations over the years. Initially, it is described as a phobic reaction to standing or walking. However, it is reclassified as a syndrome characterized by the aftermath of a fall. As understanding develops, this fear is seen as a loss of confidence in one's balance ability. It is also further defined as an ongoing concern about falling, which leads to avoidance of performing daily activities. Recently, it has been described as continuous avoidance of activities due to a concern of falling \cite{jung_fear_2008}.
     
     \section{Movements visualization} \label{sec:movements_visualization}
         
-        Kinect skeleton data comes as a series of 3D coordinates, which can be visualized in 3D space. In this section, the implementation of movement visualization is presented. It is implemented using Python programming language and Plotly library \cite{plotly}.
+        Kinect skeleton data comes as a series of 3D coordinates, which can be visualized in 3D space. In this section, the implementation of movement visualization is presented. It is implemented using \textit{Python} programming language and \textit{Plotly} library \cite{plotly}.
 
-        The first step in a visualization process is to identify a set of joints to be used. In this approach, the dataset contains 25 joints but only 16 joints are used and are displayed in Table \ref{tab:joints_select}. 
+        The first step in a visualization process is to identify a set of joints to be used. In this approach, the dataset contains \textbf{25 joints} but only \textbf{16 joints} are used and are displayed in Table \ref{tab:joints_select}. 
 
         \begin{table}[H]
             \centering
@@ -225,11 +227,11 @@
             \label{fig:movements_visualization}
         \end{figure}
 
-        Movement visualization allows for the identification of corrupted data, Figure \ref{fig:mov-1} displays a movement that is corrupted, it is not possible to identify the movement due to the data being incorrect. This led to further investigation and the identification of corrupted data in the dataset, all of the data of \textit{Patient-1} is corrupted and is removed from the dataset to not affect the classification task. This corruption is due to the patient not being in the field of view of the Kinect sensor, and the data is not recorded correctly.
+        Movement visualization allows for the identification of corrupted data, Figure \ref{fig:mov-1} displays a movement that is corrupted, it is not possible to identify the movement due to the data being incorrect. This led to further investigation and the identification of corrupted data in the dataset, all of the data of \textbf{Patient-1} is corrupted and is removed from the dataset to not affect the classification task. This corruption is due to the patient not being in the field of view of the Kinect sensor, and the data is not recorded correctly.
         
-    \section{Data processing}
+    \section{Data pre-processing}
 
-        An original dataset containing Kinect skeleton data is processed to remove noise and outliers. This process is needed to improve classification results. Data processing steps are described in the following sections.
+        An original dataset containing Kinect skeleton data is processed to remove noise and outliers. This process is needed to improve classification results. Data pre-processing steps are described in the following sections.
         
         \subsection{Cleaning}
         
@@ -247,6 +249,6 @@
 
         \subsection{Transformation}
 
-        Once data cleaning and normalization are performed, it is transformed into a format that can be used for a classification task. Using the Scikit-Learn library \cite{sklearn_api}, \textbf{MinMaxScaler} is used to scale data between 0 and 1 then \textbf{StandardScaler} is used to standardize it. After this process data is ready for a Machine Learning model.
+        Once data cleaning and normalization are performed, it is transformed into a format that can be used for a classification task. Using the \textit{Scikit-Learn} library \cite{sklearn_api}, \textit{Min-Max Scaler} is used to scale data between 0 and 1 then \textit{Standard Scaler} is used to standardize it. After this process data is ready for a Machine Learning model.
 
 \cleardoublepage
