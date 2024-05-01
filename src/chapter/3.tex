@@ -8,11 +8,11 @@
 
         In this comparative study, a total of \textbf{ten popular models} are selected for analysis of their performance on Kinect skeleton data.
 
-        \subsection{Scikit-learn}  
+        \subsubsection{Scikit-learn}  
 
             \textit{Scikit-Learn} is a Python library designed for \textit{Machine Learning}, it offers a wide range of \textit{state of the art} algorithms for medium-scale \textit{supervised} and \textit{unsupervised} problems. It emphasizes ease of use, performance, and API consistency, targeting non-specialists with its high-level approach. It stands out for its minimal dependencies and broad accessibility, being distributed under the simplified \textit{BSD license}. It integrates well with the Python ecosystem, making it highly desirable for both academic and commercial applications \cite{scikit-learn}.
 
-        \subsection{Models selection}
+        \subsubsection{Models selection}
 
         Models presented in Table \ref{tab:movements_table} are used for a classification task. Selected based on popularity and performance, these models are widely used in the Machine Learning community. Models are implemented using Scikit-Learn library and its functions for training, testing, and evaluating \cite{sklearn_api}. 
 
@@ -20,6 +20,8 @@
 
         \begin{table}[htbp]
             \centering
+            \caption{Models selected for use in this thesis.}
+            \label{tab:movements_table}
             \begin{tabular}{@{}clcl@{}}
                 \toprule
                 \multicolumn{4}{c}{\textbf{Model Name}} \\
@@ -31,8 +33,6 @@
                 5 & Logistic Regression & 10 & Decision Trees \\
                 \bottomrule
             \end{tabular}
-            \caption{Models selected for use in this thesis.}
-            \label{tab:movements_table}
         \end{table}
     
     \section{Models analysis}
@@ -152,7 +152,7 @@
         
             Due to the structure of data, a traditional approach of splitting data into training and testing sets is not effective. Two different approaches will be presented, one ineffective and one effective.
 
-            \subsection{Traditional} \label{sec:badsplit}
+            \subsubsection{Traditional} \label{sec:badsplit}
                         
                     Data is split into \textbf{70\% training} and \textbf{30\% testing} following a traditional approach used in Machine Learning literature. The code snippet in \ref{lst:badsplit} demonstrates this approach. 
             
@@ -183,7 +183,7 @@
         
                     \newpage
 
-            \subsection{Effective} \label{sec:goodsplit}
+            \subsubsection{Effective} \label{sec:goodsplit}
             Data is split into training and testing sets based on a patient's unique IDs. They are split into training and testing sets, and then data is split based on patient's unique ids. The code snippet in \ref{lst:goodsplit} demonstrates this approach.
 
 \begin{lstlisting}[
@@ -219,7 +219,7 @@
 
     \newpage
             
-            \subsection{Sequential} \label{sec:seqsplit}
+            \subsubsection{Sequential} \label{sec:seqsplit}
             Data is split into training and testing sets based on the patient's unique IDs, then sets are split into sequences. Where each sequence represents a stack of frames that make up a movement. The code snippet in \ref{lst:seqsplit} demonstrates this splitting technique. 
 
 \begin{lstlisting}[
@@ -287,12 +287,14 @@ However, there are some drawbacks to this approach. The aggregation results in a
         
         Feature engineering is the final approach used in this thesis. It is used to extract new features from raw Kinect skeleton data, to improve the performance of the models.
 
-        \subsection{Overview}
+        \subsubsection{Overview}
 
             This process is implemented to improve the performance of the models due to them not being able to differentiate well between movements based on raw data. This allows us to obtain data that is more informative and easier to interpret. Features extracted from Kinect skeleton data are presented in Table \ref{tab:features_table}.
 
         \begin{table}[htbp]
             \centering
+            \caption{Features extracted from Kinect skeleton data.}
+            \label{tab:features_table}
             \begin{tabular}{@{}clcl@{}}
                 \toprule
                 \multicolumn{4}{c}{\textbf{Features}} \\
@@ -303,16 +305,16 @@ However, there are some drawbacks to this approach. The aggregation results in a
                 7 & Forward displacement &  & \\
                 \bottomrule
             \end{tabular}
-            \caption{Features extracted from Kinect skeleton data.}
-            \label{tab:features_table}
         \end{table}
 
-        \subsection{Calculation Methods}
+        \subsubsection{Calculation Methods}
 
             Features presented in Table \ref{tab:features_table} are calculated using the following methods. For each feature, the method used to calculate it is presented, along with a brief description.
 
             \begin{table}[ht]
                 \centering
+                \caption{Selected body parts from Kinect skeleton data joints.}
+                \label{tab:body_parts_table}
                 \begin{tabular}{@{}clcl@{}}
                     \toprule
                     \multicolumn{4}{c}{\textbf{Body parts selected}} \\
@@ -323,8 +325,6 @@ However, there are some drawbacks to this approach. The aggregation results in a
                      KneeLeft & KneeRight & AnkleLeft & AnkleRight \\
                     \bottomrule
                 \end{tabular}
-                \caption{Selected body parts from Kinect skeleton data joints.}
-                \label{tab:body_parts_table}
             \end{table} 
 
             \subsubsection{Duration}
@@ -445,4 +445,5 @@ However, there are some drawbacks to this approach. The aggregation results in a
         total_vertical = df['vertical_diff'].sum()
         return total_vertical
         \end{lstlisting}
+
 \cleardoublepage

@@ -8,7 +8,7 @@
         
         Data used in this thesis is collected at Waterford Hospital in Ireland as part of a \textit{Fear of Falling} study conducted on a group of 22 elderly individuals. Following a recording setup a Microsoft Kinect is used to record movements performed. 
 
-        \subsection{Microsoft kinect}
+        \subsubsection{Microsoft kinect}
 
             The first generation of Kinect sensor, \textit{Kinect V1} in Figure \ref{fig:kinect_sensor}, is a motion sensing input device developed by Microsoft and first released in 2010 for game consoles and Microsoft Windows PCs \cite{xu_validity_2015}. A new version of a Kinect sensor, \textit{Kinect V2}, was released in 2014, with improved hardware and software \cite{cruz_kinect_2012}. 
 
@@ -42,7 +42,7 @@
                
                         \newpage
                         
-        \subsection{Recording setup}
+        \subsubsection{Recording setup}
 
                     The patient's data recording setup illustrated in Figure \ref{fig:kinect_setup} consists of consumer-level hardware (a laptop, a Kinect V2 depth camera, an external webcam, and a smartphone) and a dedicated application developed within the project. 
                     Once launched, an operator can display a sample stimulus on an external monitor to show target movements to patients (1. Stimulus playback) so they can repeat (2. patient performs movement) them by selecting one of them from a list in the application.
@@ -108,6 +108,8 @@
             
             \begin{table}[H]
                 \centering
+                \caption{Joints processed with PyKinect2 library.}
+                \label{tab:joints_recorded}
                 \begin{tabularx}{1.0\textwidth}{XXXX} 
                     \toprule
                     \multicolumn{4}{c}{\textbf{Joints}} \\ 
@@ -121,8 +123,6 @@
                     WristRight & & & \\
                     \bottomrule
                 \end{tabularx}
-                \caption{Joints processed with PyKinect2 library.}
-                \label{tab:joints_recorded}
             \end{table}
     
     \newpage 
@@ -158,6 +158,8 @@
 
         \begin{table}[H]
             \centering
+            \caption{Selected Kinect joints used for visualization.}
+            \label{tab:joints_select}
             \begin{tabularx}{1.0\textwidth}{XXX}
                 \toprule
                 \multicolumn{3}{c}{\textbf{Joints}} \\
@@ -170,8 +172,6 @@
                 Ankle Left & & \\
                 \bottomrule
             \end{tabularx}
-            \caption{Selected Kinect joints used for visualization.}
-            \label{tab:joints_select}
         \end{table}
         
         Once joints are selected, the next step is to transform the data. In its original state data is organized incorrectly for 3D visualization, and y and z coordinates are inverted. To fix this, the y and z coordinates are swapped. \\
@@ -233,11 +233,11 @@
 
         An original dataset containing Kinect skeleton data is processed to remove noise and outliers. This process is needed to improve classification results. Data pre-processing steps are described in the following sections.
         
-        \subsection{Cleaning}
+        \subsubsection{Cleaning}
         
         From the original dataset, a process of cleaning data is performed. Consisting of removing columns that contain zero values and the ones that are not needed for this classification task. Columns that are kept are listed in Table \ref{tab:joints_select}, only positional coordinates are kept, and state columns and rotation columns (x, y, z) are removed due to not giving any useful information. As mentioned in Section \ref{sec:movements_visualization},  all corrupted data that is identified with the visualization process is removed from the dataset.
 
-        \subsection{Normalization}
+        \subsubsection{Normalization}
 
         Pose normalization is performed using the formula described in \cite{maudsley-barton_comparative_2017} as follows:
         \begin{equation}
@@ -247,7 +247,7 @@
 
         Equation \ref{eq:pose_normalization} is used to normalize the pose of a patient performing a movement. By subtracting the coordinates of the spine base joint in the first frame from the coordinates of all joints in the data. This is done to remove the effect of the position of a patient in the recording setup and align all frames to the same position. 
 
-        \subsection{Transformation}
+        \subsubsection{Transformation}
 
         Once data cleaning and normalization are performed, it is transformed into a format that can be used for a classification task. Using the \textit{Scikit-Learn} library \cite{sklearn_api}, \textit{Min-Max Scaler} is used to scale data between 0 and 1 then \textit{Standard Scaler} is used to standardize it. After this process data is ready for a Machine Learning model.
 

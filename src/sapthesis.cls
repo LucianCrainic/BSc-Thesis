@@ -919,7 +919,7 @@ manually. See the documentation or just the frontispiece.}
   \providecommand{\SAP@ThesisDirectorsLabel}{Directors}
   \newcommand{\SAP@cycleLabel}{cycle}
   \newcommand{\SAP@AcademicYearLabel}{Academic Year}
-  \newcommand{\SAP@ThesisNotDefensedLabel}{Thesis not yet defended}
+  \newcommand{\SAP@ThesisNotDefensedLabel}{}
   \newcommand{\SAP@ThesisDefensedLabelA}{Thesis defended on}
   \newcommand{\SAP@ThesisDefensedLabelB}{in front of a Board of Examiners composed by}
   \newcommand{\SAP@chairman}{chairman}

@@ -61,11 +61,13 @@
 \lstdefinestyle{myStyle}{
     belowcaptionskip=1\baselineskip,
     breaklines=true,
+    numbers=left,
     numberstyle=\tiny\color{gray},
-    captionpos=b,
-    frame=tb,
+    captionpos=t,
+    frame=lines,
     basicstyle=\footnotesize\ttfamily,
-    keywordstyle=\bfseries\color{green!40!black},
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    keywordstyle=\bfseries\color{green!60!black},
     commentstyle=\itshape\color{blue!40!black},
     identifierstyle=\color{black},
     backgroundcolor=\color{white},
@@ -95,20 +97,17 @@
 \maketitle
 
 % ================== DEDICATION ==================
-\dedication{
-    It does not matter how slowly you go as long as you do not stop. 
-}
+% \dedication{
+%     It does not matter how slowly you go as long as you do not stop. 
+% }
 % ================== ABSTRACT ==================
 
 \input{./chapter/abstract}
 
-\cleardoublepage
-
 \tableofcontents
-\let\cleardoublepage\clearpage
 
 \mainmatter
-
+\let\cleardoublepage\clearpage
 % ================== CHAPTER 1 ==================
 \input{./chapter/1}
 
@@ -125,9 +124,10 @@
 \input{./chapter/5}
 
 % ================== ACKNOWLEDGMENTS ==================
-\input{./chapter/ack}
+% \input{./chapter/ack}
 
 \backmatter
+\cleardoublepage
 \phantomsection
 
 % ================== BIBLIOGRAPHY ==================

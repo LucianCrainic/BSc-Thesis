@@ -8,7 +8,7 @@
 
         Performed using \textit{Scikit-Learn} library \cite{sklearn_api}. It provides a wide range of validation methods and metrics to evaluate the performance of the models. The following sections will present validation methods and metrics used in this thesis.
 
-        \subsection{Validation}
+        \subsubsection{Validation}
 
             Validation is a process of evaluating the performance of the models. The goal of validation is to estimate the performance of the model on new data, not used during the training process. The following validation methods are used:
 
@@ -53,7 +53,7 @@
 
         In this thesis, both methods are used to evaluate the performance of the models. The Hold-Out method is used to evaluate the performance of the models for \textbf{Traditional approach} and \textbf{Sequence approach} datasets due to their large dimensions. Cross-Validation method is used with the Hold-Out method to evaluate the performance of the models for \textbf{Correct approach} and \textbf{Feature Engineering approach} dataset due to them scoring the best results and being effective approaches. Confronting the results of two methods will show the correctness of an evaluation. 
         
-        \subsection{Metrics}
+        \subsubsection{Metrics}
 
             This section will report metrics used to benchmark different models used in this thesis.
 
@@ -99,7 +99,7 @@
         
         Combining validation methods and metrics presented above, the following tables will show results obtained from experiments conducted. Results are divided into two categories: \textbf{Exploratory} shows two approaches that were tested but did not obtain good results due to wrong implementation or loss of information. \textbf{Effective} shows two approaches that obtained good results and are suitable for this task. Presented in the following order: Traditional approach, Sequence approach, Effective approach and Feature Engineering approach. 
 
-        \subsection{Exploratory}
+        \subsubsection{Exploratory}
 
             The following approaches are included because they are a starting point in this thesis, and show how different implementations can affect the accuracy of the models.
             
@@ -109,6 +109,8 @@
             
                 \begin{table}[htbp]
                     \centering
+                    \caption{Evaluation results using \textbf{Hold-Out} validation method.}
+                    \label{tab:wrong_approach_holdout}
                     \begin{tabular}{lrrrrr}
                         \toprule
                         \textbf{Model} & \textbf{Accuracy} & \textbf{F1} & \textbf{Recall} & \textbf{Precision} & \textbf{MCC} \\
@@ -120,8 +122,6 @@
                         Logistic Regression & 0.82 & 0.80 & 0.80 & 0.80 & 0.80 \\
                         \bottomrule
                     \end{tabular}
-                    \caption{Evaluation results using \textbf{Hold-Out} validation method.}
-                    \label{tab:wrong_approach_holdout}
                 \end{table}
 
                 In Table \ref{tab:wrong_approach_holdout}, results obtained from the Hold-Out method are presented. High values are obtained for all the metrics, with \textbf{Random Forests} obtaining the highest values with a score of \textbf{0.99} for accuracy. This confirmed doubts about the validity of results, a patient is both present in the training and testing set. This led to models \textbf{overfitting} the data and obtaining high accuracy.
@@ -132,6 +132,8 @@
                 
                 \begin{table}[htbp]
                     \centering
+                    \caption{Evaluation results using \textbf{Hold-Out} validation method.}
+                    \label{tab:sequence_approach_holdout}
                     \begin{tabular}{lrrrrr}
                         \toprule
                         \textbf{Model} & \textbf{Accuracy} & \textbf{F1} & \textbf{Recall} & \textbf{Precision} & \textbf{MCC} \\
@@ -143,13 +145,11 @@
                         Decision Trees & 0.41 & 0.38 & 0.39 & 0.40 & 0.34 \\
                         \bottomrule
                     \end{tabular}
-                    \caption{Evaluation results using \textbf{Hold-Out} validation method.}
-                    \label{tab:sequence_approach_holdout}
                 \end{table}
 
                 In Table \ref{tab:sequence_approach_holdout}, results obtained from the Hold-Out method are presented. Low values are obtained for all the metrics, with \textbf{K-Nearest Neighbors} obtaining the highest values with a score of \textbf{0.56} for accuracy. These results are considered low based on other approaches, however in the context of randomly guessing a movement of a patient accuracy would be \textbf{0.10} as there are \textbf{10 movements}. This means that models can differentiate between movements, but sequence implementation leads to a loss of information and a high accuracy cannot be obtained.
 
-        \subsection{Effective}
+        \subsubsection{Effective}
 
                 The following approaches obtained the best results and are suitable for this task. The main difference between the two approaches is in the data used to train the models. Correct Approach uses data as it is from the Kinect sensor, while Feature Engineering Approach uses data after applying Feature Engineering techniques.
                 
@@ -163,6 +163,8 @@
 
                 \begin{table}[htbp]
                     \centering
+                    \caption{Evaluation results using \textbf{Hold-Out} validation method.}
+                    \label{tab:correct_approach_holdout}
                     \begin{tabular}{lrrrrr}
                         \toprule
                         \textbf{Model} & \textbf{Accuracy} & \textbf{F1} & \textbf{Recall} & \textbf{Precision} & \textbf{MCC} \\
@@ -179,8 +181,6 @@
                         Ada Boost & 0.35 & 0.22 & 0.28 & 0.24 & 0.32 \\
                         \bottomrule
                     \end{tabular}
-                    \caption{Evaluation results using \textbf{Hold-Out} validation method.}
-                    \label{tab:correct_approach_holdout}
                 \end{table}
 
                 In Table \ref{tab:correct_approach_holdout} \textbf{Hold-Out} validation method is used for all models, while in Table \ref{tab:correct_approach_cv} \textbf{Cross-Validation} is used with only 3 models to compare two validation methods and show that there is no major difference between them. The results obtained from the two methods are similar. \\
@@ -189,6 +189,8 @@
                 
                 \begin{table}[htbp]
                     \centering
+                    \caption{Comparison of obtained results with Cross-Validation and Hold-Out methods. Metrics reported are (from top to bottom): Accuracy, F1, Recall, Precision, MCC.}
+                    \label{tab:correct_approach_cv}
                     \begin{tabular}{|c|c|c|}
                     \hline
                     \textbf{Model} & \textbf{Cross-Validation} & \textbf{Hold-Out} \\ \hline
@@ -211,8 +213,6 @@
                                                         & 0.62 & 0.58 \\ 
                                                         \hline
                     \end{tabular}
-                    \caption{Comparison of obtained results with Cross-Validation and Hold-Out methods. Metrics reported are (from top to bottom): Accuracy, F1, Recall, Precision, MCC.}
-                    \label{tab:correct_approach_cv}
                 \end{table}
                 \newpage
                 In Table \ref{tab:correct_approach_mat_hoop} are displayed results of a final approach, where two movements \textbf{Mat Walk} and \textbf{Hoop Walk} are removed from the dataset one at a time. Results show that the accuracy of models increased by \textbf{4\%} to \textbf{5\%}. This is because the two movements are very similar, and this caused models to struggle to differentiate between them no matter the features used. \\
@@ -220,6 +220,8 @@
 
                 \begin{table}[htbp]
                     \centering
+                    \caption{Comparison of obtained results with Mat Walk and Hoop Walk removed from the dataset. Metrics reported are (from top to bottom): Accuracy, F1, Recall, Precision, MCC.}
+                    \label{tab:correct_approach_mat_hoop} 
                     \begin{tabular}{|c|c|c|}
                     \hline
                     \textbf{Model} & \textbf{Hoop Walk Removed} & \textbf{Mat Walk Removed} \\ \hline
@@ -242,8 +244,6 @@
                                                         & 0.73 & 0.73 \\ 
                                                         \hline
                     \end{tabular}
-                    \caption{Comparison of obtained results with Mat Walk and Hoop Walk removed from the dataset. Metrics reported are (from top to bottom): Accuracy, F1, Recall, Precision, MCC.}
-                    \label{tab:correct_approach_mat_hoop} 
                 \end{table}
            \newpage 
 
@@ -253,6 +253,8 @@
             
             \begin{table}[htbp]
                 \centering
+                \caption{Evaluation results using \textbf{Cross-Validation} method.}
+                \label{tab:feature_engineering_approach_cv}
                 \begin{tabular}{lrrrrr}
                     \toprule
                     \textbf{Model} & \textbf{Accuracy} & \textbf{F1} & \textbf{Recall} & \textbf{Precision} & \textbf{MCC} \\
@@ -269,8 +271,6 @@
                     Ada Boost & 0.46 & 0.38 & 0.46 & 0.42 & 0.43 \\
                     \bottomrule
                 \end{tabular}
-                \caption{Evaluation results using \textbf{Cross-Validation} method.}
-                \label{tab:feature_engineering_approach_cv}
             \end{table}
 
             In Table \ref{tab:feature_engineering_approach_cv} results obtained from the Cross-Validation method are displayed. High values are obtained for all metrics, with \textbf{Multi-Layer Perceptron}  and \textbf{Logistic Regression} obtaining the highest values with a score of \textbf{0.83} and \textbf{0.82} for accuracy. Other models such as \textit{Linear-Discriminant Analysis}, \textit{Gradient Boosting}, \textit{Random Forests}, \textit{Support-Vector Machines}, \textit{K-Nearest Neighbors} obtained great results as well with a score greater than \textbf{0.70} for accuracy. 
@@ -283,6 +283,8 @@
 
             \begin{table}[htbp]
                 \centering
+                \caption{Comparison of obtained results with Cross-Validation and Hold-Out methods. The metrics reported are (from top to bottom): Accuracy, F1, Recall, Precision, and MCC.}
+                \label{tab:feature_engineering_approach_holdout}
                 \begin{tabular}{|c|c|c|}
                 \hline
                 \textbf{Model} & \textbf{Cross-Validation} & \textbf{Hold-Out} \\ \hline
@@ -305,12 +307,12 @@
                                                     & 0.81 & 0.68 \\ 
                                                     \hline
                 \end{tabular}
-                \caption{Comparison of obtained results with Cross-Validation and Hold-Out methods. The metrics reported are (from top to bottom): Accuracy, F1, Recall, Precision, and MCC.}
-                \label{tab:feature_engineering_approach_holdout}
             \end{table}
 
             \begin{table}[htbp]
                 \centering
+                \caption{Comparison of obtained results with Mat Walk and Hoop Walk removed from the dataset. Metrics reported are (from top to bottom): Accuracy, F1, Recall, Precision, MCC.}
+                \label{tab:feature_engineering_approach_mat_hoop}
                 \begin{tabular}{|c|c|c|}
                 \hline
                 \textbf{Model} & \textbf{Hoop Walk Removed} & \textbf{Mat Walk Removed} \\ \hline
@@ -333,8 +335,6 @@
                                                     & 0.90 & 0.89 \\ 
                                                     \hline
                 \end{tabular}
-                \caption{Comparison of obtained results with Mat Walk and Hoop Walk removed from the dataset. Metrics reported are (from top to bottom): Accuracy, F1, Recall, Precision, MCC.}
-                \label{tab:feature_engineering_approach_mat_hoop}
             \end{table}
 \newpage
             
