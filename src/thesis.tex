@@ -1,0 +1,138 @@
+% ============================================== %
+% Author: Lucian Dorin Crainic <https://luciancrainic.github.io/>
+%
+% Thesis Title: Machine Learning for Human Movement Classification Based on Kinect Skeleton Data.
+% 
+% Bachelor of Science in Computer Science, Sapienza University of Rome.
+%
+% https://github.com/LucianCrainic/bsc-thesis/
+%
+% ============================================== %
+
+% Document Class
+\documentclass[binding=0.6cm]{sapthesis}
+
+% Packages
+\usepackage{microtype}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{geometry} 
+\usepackage{caption}  
+\usepackage[edges]{forest}
+\usepackage{subcaption}
+\usepackage{float}    
+\usepackage{lipsum}  
+\usepackage{xargs}                     
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{makecell}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{threeparttable}
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+
+% Commands and Settings
+\newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\info}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+\newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcounter{boxlblcounter}  
+\newcommand{\makeboxlabel}[1]{\fbox{#1.}\hfill}
+\newenvironment{boxlabel}
+  {\begin{list}
+    {\arabic{boxlblcounter}}
+    {\usecounter{boxlblcounter}
+     \setlength{\labelwidth}{3em}
+     \setlength{\labelsep}{0em}
+     \setlength{\itemsep}{2pt}
+     \setlength{\leftmargin}{1.5cm}
+     \setlength{\rightmargin}{2cm}
+     \setlength{\itemindent}{0em} 
+     \let\makelabel=\makeboxlabel
+    }
+  }
+{\end{list}}
+\lstdefinestyle{myStyle}{
+    belowcaptionskip=1\baselineskip,
+    breaklines=true,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    captionpos=t,
+    frame=lines,
+    basicstyle=\footnotesize\ttfamily,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    keywordstyle=\bfseries\color{green!60!black},
+    commentstyle=\itshape\color{blue!40!black},
+    identifierstyle=\color{black},
+    backgroundcolor=\color{white},
+}
+\lstset{style=mystyle}
+
+% Metadata
+\hypersetup{pdftitle={Thesis},pdfauthor={Lucian Dorin Crainic}, urlcolor=black, linkcolor=black, colorlinks=true}
+\title{Machine Learning for Human Movement\\ Classification Based on Kinect Skeleton Data}
+\author{Lucian Dorin Crainic}
+\IDnumber{1938430}
+\course{Bachelor's Degree in Computer Science}
+\courseorganizer{Faculty of Information Engineering, Computer Science and Statistics}
+\AcademicYear{2023/2024}
+\advisor{Prof. Maurizio Mancini}
+\authoremail{crainic.lucian@gmail.com}
+\copyyear{2024}
+\thesistype{Bachelor's Thesis}
+
+% ================== DOCUMENT ==================
+\begin{document}
+
+\lstset{language=Python}
+
+\frontmatter
+
+\maketitle
+
+% ================== DEDICATION ==================
+\dedication{
+    It does not matter how slowly you go as long as you do not stop. 
+}
+% ================== ABSTRACT ==================
+
+\input{./chapter/abstract}
+
+\tableofcontents
+
+\mainmatter
+\let\cleardoublepage\clearpage
+% ================== CHAPTER 1 ==================
+\input{./chapter/1}
+
+% ================== CHAPTER 2 ==================
+\input{./chapter/2}
+
+% ================== CHAPTER 3 ==================
+\input{./chapter/3}
+
+%================== CHAPTER 4 ==================
+\input{./chapter/4}
+
+% ================== CHAPTER 5 ==================
+\input{./chapter/5}
+
+% ================== ACKNOWLEDGMENTS ==================
+\input{./chapter/ack}
+
+\backmatter
+\cleardoublepage
+\phantomsection
+
+% ================== BIBLIOGRAPHY ==================
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{sapthesis}
+\bibliography{references.bib}
+
+\end{document}
